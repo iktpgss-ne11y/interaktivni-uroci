@@ -105,6 +105,18 @@ var Uchebnik = (function () {
 
   var skorost = procheti("skorost", 0.95);
 
+  // Папката с готовите записи (glas/) е до папката obshto/, в която е този файл
+  var GLAS = (function () {
+    var s = document.currentScript && document.currentScript.src;
+    return s ? s.replace(/obshto\/ucheben\.js.*$/, "glas/") : "glas/";
+  })();
+  // Име на страницата за имената на записите, например html-01-parvata-stranitsa
+  function imeNaStranitsa() {
+    var m = location.pathname.match(/([^\/]+)\/([^\/]+)\.html$/);
+    if (!m) return "index";
+    return m[2] === "index" ? "index" : (m[1] + "-" + m[2]);
+  }
+
   function kazhi(tekst, sledTova) {
     if (!("speechSynthesis" in window)) return false;
     var iz = new SpeechSynthesisUtterance(tekst);
@@ -117,14 +129,56 @@ var Uchebnik = (function () {
     return true;
   }
 
-  function chetiTekstove(tekstove, suvet) {
-    if (!("speechSynthesis" in window)) {
-      if (suvet) suvet.textContent = "Този браузър не може да чете на глас. Използвайте текстовия файл с приложение за четене.";
-      return;
+  // Пуска списък от парчета. Всяко парче е { src: записан файл, tekst: текст }.
+  // Ако има записан файл (гласът на учителя), пуска него. Ако няма, чете с гласа на браузъра.
+  var tekushtoAudio = null, pokolenieChetene = 0;
+  function spriChetene() {
+    pokolenieChetene++;
+    if (tekushtoAudio) { tekushtoAudio.pause(); tekushtoAudio = null; }
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
+  }
+  function pusniParche(parche, sledTova) {
+    var moe = pokolenieChetene, svarshi = false;
+    function natatak() { if (!svarshi && moe === pokolenieChetene) { svarshi = true; sledTova(); } }
+    function sBrauzar() {
+      if (!parche.tekst || !kazhi(parche.tekst, natatak)) natatak();
     }
-    speechSynthesis.cancel();
-    if (suvet) suvet.textContent = balgarskiGlas() ? "" : "Няма български глас в този браузър. Опитайте с Microsoft Edge.";
-    tekstove.forEach(function (t) { if (t) kazhi(t); });
+    if (!parche.src) { sBrauzar(); return; }
+    var a = new Audio(parche.src);
+    a.playbackRate = skorost / 0.95;
+    tekushtoAudio = a;
+    a.onended = natatak;
+    a.onerror = function () { if (moe === pokolenieChetene && tekushtoAudio === a) { tekushtoAudio = null; sBrauzar(); } };
+    var p = a.play();
+    if (p && p.catch) p.catch(function () { if (moe === pokolenieChetene && tekushtoAudio === a && !a.currentTime) { tekushtoAudio = null; sBrauzar(); } });
+  }
+  function pusniSpisak(parcheta, sledVsichki) {
+    spriChetene();
+    var i = 0;
+    (function sledvasht() {
+      if (i >= parcheta.length) { if (sledVsichki) sledVsichki(); return; }
+      pusniParche(parcheta[i++], sledvasht);
+    })();
+  }
+
+  function chetiTekstove(tekstove, suvet) {
+    pusniSpisak(tekstove.filter(Boolean).map(function (t) { return typeof t === "string" ? { tekst: t } : t; }));
+    if (suvet) suvet.textContent = "";
+  }
+
+  // Парчетата за четене в един раздел. Същата функция ползва и генераторът,
+  // за да направи списъка с текстове за запис (generator/glas_chetene.py).
+  function parchetaNaRazdel(razdel) {
+    var parcheta = [], n = 0, str = imeNaStranitsa();
+    razdel.querySelectorAll("h1, h2, h3, p, li, legend, label, figcaption").forEach(function (e) {
+      if (e.closest("pre, .redaktor, .cheti, .ne-cheti, .obratna, .podskazka, .saobshtenie")) return;
+      if (e.tagName === "P" && e.closest("li")) return;
+      var t = tekstZaChetene(e);
+      if (!t) return;
+      n++;
+      parcheta.push({ src: GLAS + str + "__" + razdel.id + "__" + (n < 10 ? "0" : "") + n + ".mp3", tekst: t });
+    });
+    return parcheta;
   }
 
   function nastroiChetene() {
@@ -132,17 +186,11 @@ var Uchebnik = (function () {
       buton.addEventListener("click", function () {
         var razdel = document.getElementById(buton.dataset.cheti);
         if (!razdel) return;
-        var tekstove = [];
-        razdel.querySelectorAll("h1, h2, h3, p, li, legend, label, figcaption").forEach(function (e) {
-          if (e.closest("pre, .redaktor, .cheti, .ne-cheti, .obratna, .podskazka, .saobshtenie")) return;
-          if (e.tagName === "P" && e.closest("li")) return;
-          tekstove.push(tekstZaChetene(e));
-        });
-        chetiTekstove(tekstove, razdel.querySelector(".suvet-glas"));
+        pusniSpisak(parchetaNaRazdel(razdel));
       });
     });
     document.querySelectorAll("[data-spri]").forEach(function (b) {
-      b.addEventListener("click", function () { if ("speechSynthesis" in window) speechSynthesis.cancel(); });
+      b.addEventListener("click", spriChetene);
     });
     document.querySelectorAll(".izbor-skorost").forEach(function (s) {
       s.value = String(skorost);
@@ -224,7 +272,7 @@ var Uchebnik = (function () {
       varvi = false;
       clearInterval(pisane);
       clearTimeout(chakane);
-      if ("speechSynthesis" in window) speechSynthesis.cancel();
+      spriChetene();
       pokazhiSastoyanie();
     }
 
@@ -265,12 +313,19 @@ var Uchebnik = (function () {
           chakane = setTimeout(function () { if (moe === pokolenie) igrai(i + 1); }, 700);
         }
       }
-      // Говорим само с български глас. Без него показваме субтитри и оставяме време за четене.
+      // Първо пускаме записа с гласа на учителя (видео/glas). Ако го няма, говори браузърът,
+      // но само с български глас. Без глас показваме субтитри и оставяме време за четене.
       var vremeZaChetene = 1500 + sc.govor.length * 60 / skorost;
-      if (balgarskiGlas() && kazhi(sc.izgovor || sc.govor, function () { gotovGlas = true; oshte(); })) {
-        chakane = setTimeout(function () { gotovGlas = true; oshte(); }, vremeZaChetene * 1.6);
+      function gotovo() { gotovGlas = true; oshte(); }
+      if (sc.glas) {
+        pusniParche({ src: sc.glas, tekst: balgarskiGlas() ? (sc.izgovor || sc.govor) : "" }, function () {
+          // ако нямаше нито запис, нито глас, чакаме времето за четене
+          if (!tekushtoAudio && !balgarskiGlas()) chakane = setTimeout(gotovo, vremeZaChetene); else gotovo();
+        });
+      } else if (balgarskiGlas() && kazhi(sc.izgovor || sc.govor, gotovo)) {
+        chakane = setTimeout(gotovo, vremeZaChetene * 1.6);
       } else {
-        chakane = setTimeout(function () { gotovGlas = true; oshte(); }, vremeZaChetene);
+        chakane = setTimeout(gotovo, vremeZaChetene);
       }
       napishi(kodPredi(i), sc.kod, function () { gotovKod = true; oshte(); });
     }
@@ -426,7 +481,7 @@ var Uchebnik = (function () {
     var celta = n.poRed || 5;
     var kluch = "trenirovka:" + location.pathname;
     var danni = procheti(kluch, { naiDobro: 0, ovladyano: false });
-    var opashka = [], podRed = 0, tekusht = null, poslednaObratna = "";
+    var opashka = [], podRed = 0, tekusht = null, poslednaObratna = "", posledenVeren = false;
     var el = {
       broyach: kutiya.querySelector(".broyach"),
       tochki: kutiya.querySelector(".tochki"),
@@ -506,6 +561,7 @@ var Uchebnik = (function () {
         podRed = 0;
       }
       poslednaObratna = el.obratna.textContent;
+      posledenVeren = veren;
       zapazi(kluch, danni);
       risuvaiTochki();
       el.proveri.hidden = true;
@@ -534,12 +590,21 @@ var Uchebnik = (function () {
     el.proveri.addEventListener("click", proveri);
     el.sledvasht.addEventListener("click", sledvasht);
     el.cheti.addEventListener("click", function () {
-      var t = [tekusht.izgovor || tekusht.tekst];
+      // Записите: <страница>__v03__vapros.mp3, __otg-2.mp3 (по реда в данните), __obyasnenie.mp3
+      var osnova = GLAS + imeNaStranitsa() + "__v" + (tekusht.id < 10 ? "0" : "") + tekusht.id + "__";
+      var p = [{ src: osnova + "vapros.mp3", tekst: tekusht.izgovor || tekusht.tekst }];
       if (tekusht.vid === "izbor") {
-        el.pole.querySelectorAll("label").forEach(function (l, i) { t.push("Отговор " + (i + 1) + ". " + l.textContent.trim()); });
+        el.pole.querySelectorAll("label").forEach(function (l, i) {
+          var orig = Number(l.querySelector("input").value) + 1;
+          p.push({ src: GLAS + "obshto__otgovor-" + (i + 1) + ".mp3", tekst: "Отговор " + (i + 1) + "." });
+          p.push({ src: osnova + "otg-" + orig + ".mp3", tekst: (tekusht.izgovorOtgovori || [])[orig - 1] || l.textContent.trim() });
+        });
       }
-      if (poslednaObratna) t.push(poslednaObratna);
-      chetiTekstove(t, null);
+      if (poslednaObratna) {
+        p.push({ src: GLAS + "obshto__" + (posledenVeren ? "vyarno" : "ne-savsem") + ".mp3", tekst: posledenVeren ? "Вярно!" : "Не съвсем." });
+        if (tekusht.obyasnenie) p.push({ src: osnova + "obyasnenie.mp3", tekst: tekusht.izgovorObyasnenie || tekusht.obyasnenie });
+      }
+      pusniSpisak(p);
     });
     risuvaiTochki();
     sledvasht();
@@ -581,6 +646,7 @@ var Uchebnik = (function () {
     proekt: proekt,
     proverkaNaZnaniyata: proverkaNaZnaniyata,
     trenirovka: trenirovka,
+    _parchetaNaRazdel: parchetaNaRazdel,
     P: P
   };
 })();
