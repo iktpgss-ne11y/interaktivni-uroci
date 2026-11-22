@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лендинг страница</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 3. Оформление на страница · Проект</p>
+  <h1>Лендинг страница</h1>
+  <p class="podzaglavie">Направете една страница, която представя продукт, услуга или училищен клуб. Такава страница се нарича лендинг.</p>
+</header>
+
+<main>
+  <section class="karta" id="zadanie">
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="zadanie">▶ Чети заданието</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Задание</h2>
+    <p>Лендинг страницата има една цел: да убеди посетителя да направи нещо. Например да се запише в клуба или да дойде на събитие.</p>
+    <p>Обикновено има меню най-горе, голям хедър с призив, раздел с предимства в три колони и футър с контакти.</p>
+    <p>Ако искате да видите как се прави от професионалист, гледайте видеото на СофтУни в урока за навигационно меню.</p>
+    <h3>Задължителни изисквания</h3>
+    <ul class="iziskvaniya" id="iziskvaniya">
+      <li>Семантична структура: <code data-izgovor="нав">nav</code>, <code data-izgovor="хедър">header</code>, <code data-izgovor="мейн">main</code> и <code data-izgovor="футър">footer</code>.<p class="obratna"></p></li>
+      <li>Хоризонтално меню с поне две връзки, без точки.<p class="obratna"></p></li>
+      <li>Ефект при посочване на връзките в менюто.<p class="obratna"></p></li>
+      <li>Хедър с главно заглавие и призив в абзац.<p class="obratna"></p></li>
+      <li>Поне три кутии с предимства, подредени с flexbox.<p class="obratna"></p></li>
+      <li>Медийна заявка за тесни екрани.<p class="obratna"></p></li>
+      <li>Връзка от менюто води до място в страницата.<p class="obratna"></p></li>
+    </ul>
+    <h3>Идеи, ако искате повече</h3>
+    <ul>
+      <li>Добавете бутон-връзка с призив, например Запиши се, с ярък фон и заоблени ъгли.</li>
+      <li>Добавете снимка в хедъра с <code data-izgovor="макс уидт сто процента">max-width: 100%</code>.</li>
+      <li>Направете менюто да остава горе при превъртане с <code data-izgovor="позишън стики, топ нула">position: sticky; top: 0</code>.</li>
+    </ul>
+  </section>
+  <section class="karta">
+    <div class="redaktor" id="r-proekt">
+      <div>
+        <div class="eticheta">Вашият проект</div>
+        <textarea spellcheck="false" aria-label="Вашият проект">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;bg&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Моят лендинг&lt;/title&gt;
+  &lt;style&gt;
+
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери изискванията</button>
+      <button type="button" class="vtori" data-nulirai="r-proekt">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+    <p>Кодът се пази в този браузър. За да го предадете, копирайте го в нов файл index.html или го качете в GitHub.</p>
+  </section>
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.proekt({ redaktor: "r-proekt", spisak: "iziskvaniya", proveri: "proveri", saobshtenie: "saobshtenie",
+    proverki: [
+function (d, kod, w, P) {
+var l = ["nav", "header", "main", "footer"].filter(function (t) { return !d.querySelector(t); }); if (l.length) return "Липсва: " + l.join(", ") + "."; return true;
+},
+function (d, kod, w, P) {
+var li = d.querySelectorAll("nav li"); if (li.length < 2) return "Менюто трябва да е списък с поне две връзки."; if (P.stil(li[0].parentElement, "list-style-type") !== "none") return "Махнете точките."; if (Math.abs(li[0].getBoundingClientRect().top - li[1].getBoundingClientRect().top) > 2) return "Менюто не е хоризонтално."; return true;
+},
+function (d, kod, w, P) {
+if (!/a:hover/.test(kod)) return "Добавете правило за a:hover."; return true;
+},
+function (d, kod, w, P) {
+if (!d.querySelector("header h1") || !d.querySelector("header p")) return "В header трябва да има h1 и абзац."; return true;
+},
+function (d, kod, w, P) {
+var k = Array.prototype.find.call(d.querySelectorAll("main *"), function (e) { return P.stil(e, "display") === "flex" && e.children.length >= 3; }); if (!k) return "Нужен е flex контейнер в main с поне три кутии."; return true;
+},
+function (d, kod, w, P) {
+if (!/@media\s*\(\s*max-width/.test(kod)) return "Добавете @media (max-width: ...)."; return true;
+},
+function (d, kod, w, P) {
+var a = Array.prototype.find.call(d.querySelectorAll("nav a[href^='#']"), function (x) { var id = x.getAttribute("href").slice(1); return id && d.getElementById(id); }); if (!a) return "Нужна е връзка в менюто към id в страницата."; return true;
+}
+    ] });
+});
+</script>
+</body>
+</html>

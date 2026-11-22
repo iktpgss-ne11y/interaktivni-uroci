@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Плакат за училищно събитие</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 2. CSS основи · Проект</p>
+  <h1>Плакат за училищно събитие</h1>
+  <p class="podzaglavie">Направете уеб плакат за концерт, турнир, базар или друго събитие в училище.</p>
+</header>
+
+<main>
+  <section class="karta" id="zadanie">
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="zadanie">▶ Чети заданието</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Задание</h2>
+    <p>Плакатът трябва да привлича окото и да се чете лесно отдалеч. Изберете два или три цвята, които си подхождат.</p>
+    <p>Важните неща са какво, кога и къде. Те трябва да се виждат веднага.</p>
+    <p>Целият стил е в таг <code data-izgovor="стайл">style</code>. Не използвайте атрибут <code data-izgovor="стайл">style</code> в елементите.</p>
+    <h3>Задължителни изисквания</h3>
+    <ul class="iziskvaniya" id="iziskvaniya">
+      <li>Фонът на страницата има цвят.<p class="obratna"></p></li>
+      <li>Плакатът има ширина, вътрешно отстояние и рамка.<p class="obratna"></p></li>
+      <li>Плакатът е центриран на страницата.<p class="obratna"></p></li>
+      <li>Заглавието е по-голямо от обикновеното и има свой цвят.<p class="obratna"></p></li>
+      <li>Датата е удебелена.<p class="obratna"></p></li>
+      <li>Попълнени са името на събитието, датата и мястото.<p class="obratna"></p></li>
+      <li>Няма атрибут <code data-izgovor="стайл">style</code> в елементите.<p class="obratna"></p></li>
+    </ul>
+    <h3>Идеи, ако искате повече</h3>
+    <ul>
+      <li>Добавете снимка от папка <code data-izgovor="снимки">snimki</code> и ѝ дайте заоблени ъгли.</li>
+      <li>Направете два класа за различни видове текст и ги комбинирайте.</li>
+      <li>Използвайте шрифт от Google Fonts. Потърсете как се свързва с таг <code data-izgovor="линк">link</code>.</li>
+    </ul>
+  </section>
+  <section class="karta">
+    <div class="redaktor" id="r-proekt">
+      <div>
+        <div class="eticheta">Вашият проект</div>
+        <textarea spellcheck="false" aria-label="Вашият проект">&lt;style&gt;
+
+&lt;/style&gt;
+&lt;div class=&quot;plakat&quot;&gt;
+  &lt;h1&gt;Име на събитието&lt;/h1&gt;
+  &lt;p class=&quot;koga&quot;&gt;Дата и час&lt;/p&gt;
+  &lt;p class=&quot;kade&quot;&gt;Място&lt;/p&gt;
+  &lt;p&gt;Кратко описание.&lt;/p&gt;
+&lt;/div&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери изискванията</button>
+      <button type="button" class="vtori" data-nulirai="r-proekt">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+    <p>Кодът се пази в този браузър. За да го предадете, копирайте го в нов файл index.html или го качете в GitHub.</p>
+  </section>
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.proekt({ redaktor: "r-proekt", spisak: "iziskvaniya", proveri: "proveri", saobshtenie: "saobshtenie",
+    proverki: [
+function (d, kod, w, P) {
+if (!P.imaCvyat(P.stil(d.body, "background-color")) || P.stil(d.body, "background-color") === "rgb(255, 255, 255)") return "Дайте цвят на фона на body."; return true;
+},
+function (d, kod, w, P) {
+var e = d.querySelector(".plakat"); if (!e) return "Не изтривайте div с клас plakat."; if (!P.px(P.stil(e, "padding-top"))) return "Няма padding."; if (P.stil(e, "border-top-style") === "none") return "Няма рамка."; if (e.getBoundingClientRect().width > d.documentElement.clientWidth - 20) return "Задайте ширина на плаката."; return true;
+},
+function (d, kod, w, P) {
+var r = d.querySelector(".plakat").getBoundingClientRect(), W = d.documentElement.clientWidth; if (Math.abs(r.left - (W - r.right)) > 4) return "Използвайте margin с auto."; return true;
+},
+function (d, kod, w, P) {
+var h = d.querySelector("h1"); if (P.px(P.stil(h, "font-size")) <= 32) return "Направете заглавието по-голямо от 32px."; if (P.stil(h, "color") === P.stil(d.querySelector(".plakat p"), "color")) return "Дайте на заглавието различен цвят от текста."; return true;
+},
+function (d, kod, w, P) {
+if (Number(P.stil(d.querySelector(".koga"), "font-weight")) < 600) return "Направете .koga удебелена."; return true;
+},
+function (d, kod, w, P) {
+if (!d.querySelector("h1") || !d.querySelector(".koga") || !d.querySelector(".kade")) return "Нужни са h1, .koga и .kade."; if (/Име на събитието|Дата и час|^Място$/.test(P.tekst(d.querySelector("h1")) + "|" + P.tekst(d.querySelector(".koga")))) return "Сменете примерния текст с вашето събитие."; if (P.tekst(d.querySelector(".kade")) === "Място") return "Напишете мястото."; return true;
+},
+function (d, kod, w, P) {
+if (/<[a-z0-9]+[^>]*\sstyle\s*=/i.test(kod)) return "Преместете стила от атрибута style в тага style."; return true;
+}
+    ] });
+});
+</script>
+</body>
+</html>

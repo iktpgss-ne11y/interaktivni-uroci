@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Първото CSS правило: цветове</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 2. CSS основи · Урок 6</p>
+  <h1>Първото CSS правило: цветове</h1>
+  <p class="podzaglavie">Ще научите как се пише CSS правило и как се сменят цветът на текста и цветът на фона.</p>
+  <p class="podzaglavie">Време: около 30 минути.</p>
+</header>
+
+<main>
+  <section class="karta" id="govoresht">
+    <span class="etiket">1. Видеообяснение</span>
+    <h2>Оцветяваме страница</h2>
+    <video class="video-urok" controls preload="metadata" src="../video/06-tsvetove.mp4"></video>
+    <p>Видеото има глас и субтитри. Под него е същото обяснение, но интерактивно: можете да спрете и да промените кода сами.</p>
+    <p>Натиснете Пусни. Кодът ще се пише сам, а гласът ще обяснява. Можете да спрете по всяко време, да промените кода и да видите какво става.</p>
+    <div class="plejar" id="plejar">
+    <div class="redaktor" id="r-govoresht" data-bez-pamet>
+      <div>
+        <div class="eticheta">Код</div>
+        <textarea spellcheck="false" aria-label="Код">&lt;h1&gt;Зоопарк&lt;/h1&gt;
+&lt;p&gt;Елате да видите животните.&lt;/p&gt;
+&lt;p&gt;Отворено всеки ден.&lt;/p&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+      <div class="subtitri" aria-live="polite"></div>
+      <div class="upravlenie">
+        <button type="button" class="nazad vtori" aria-label="Предишна сцена">⏮ Назад</button>
+        <button type="button" class="pusni">▶ Пусни</button>
+        <button type="button" class="napred vtori" aria-label="Следваща сцена">Напред ⏭</button>
+        <label>Скорост на гласа
+          <select class="izbor-skorost">
+            <option value="0.8">бавно</option>
+            <option value="0.95">нормално</option>
+            <option value="1.1">бързо</option>
+          </select>
+        </label>
+        <span class="nomer-scena"></span>
+      </div>
+      <div class="lenta-kutiya"><div class="lenta"></div></div>
+    </div>
+    <p>Гласът работи най-добре в Microsoft Edge, където има български глас. В другите браузъри урокът върви със субтитри.</p>
+  </section>
+  <section class="karta" id="obyasnenie">
+    <span class="etiket">2. Обяснение</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="obyasnenie">▶ Чети на глас</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Селектор, свойство и стойност</h2>
+    <p>CSS правилото има селектор и блок с декларации във фигурни скоби. Всяка декларация е свойство, двоеточие, стойност и точка и запетая.</p>
+    <pre class="primer"><code>h1 {
+  color: green;
+  background-color: #fff3e0;
+}</code></pre>
+    <p>Свойството <code data-izgovor="колър">color</code> сменя цвета на текста. Свойството <code data-izgovor="бекграунд колър">background-color</code> сменя цвета на фона.</p>
+    <p>Цветът може да се напише с име, например <code data-izgovor="ред">red</code>, или с шестнадесетичен код, например <code data-izgovor="диез ф ф нула нула нула нула">#ff0000</code>. Има и запис <code data-izgovor="ар джи би">rgb(255, 0, 0)</code> с три числа от нула до двеста петдесет и пет.</p>
+    <p>Стилът може да е в таг <code data-izgovor="стайл">style</code> в страницата или в отделен файл, свързан с таг <code data-izgovor="линк">link</code>. В истински сайт се използва отделен файл, за да важи за всички страници.</p>
+    <p>Внимавайте за контраста. Светъл текст на светъл фон се чете трудно. Хората със слабо зрение имат нужда от тъмен текст на светъл фон или обратното.</p>
+  </section>
+  <section class="karta" id="predizvikatelstvo">
+    <span class="etiket">3. Предизвикателство</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="predizvikatelstvo">▶ Чети задачата</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Есенна картичка</h2>
+    <p>Оцветете картичка в есенни цветове. Изпълнявайте стъпките една по една. След всяка стъпка натиснете Провери.</p>
+    <ol class="stapki" id="stapki">
+      <li>В таг <code data-izgovor="стайл">style</code> напишете правило, което прави фона на страницата светлооранжев. Използвайте селектор <code data-izgovor="боди">body</code>.
+        <p class="podskazka">Подсказка: <code data-izgovor="боди, бекграунд колър, диез ф ф ф три е нула">body { background-color: #fff3e0; }</code>.</p></li>
+      <li>Направете главното заглавие оранжево със свойството <code data-izgovor="колър">color</code>.
+        <p class="podskazka">Подсказка: <code data-izgovor="ейч едно, колър, оранж">h1 { color: orange; }</code>. Можете да използвате и код като <code data-izgovor="диез е шест пет едно нула нула">#e65100</code>.</p></li>
+      <li>С едно правило оцветете и двата абзаца в кафяво.
+        <p class="podskazka">Подсказка: селекторът <code data-izgovor="пи">p</code> хваща всички абзаци наведнъж.</p></li>
+      <li>Дайте на главното заглавие и собствен фон, различен от фона на страницата.
+        <p class="podskazka">Подсказка: в правилото за <code data-izgovor="ейч едно">h1</code> добавете <code data-izgovor="бекграунд колър">background-color</code>.</p></li>
+    </ol>
+    <div class="redaktor" id="r-zadacha">
+      <div>
+        <div class="eticheta">Вашият код</div>
+        <textarea spellcheck="false" aria-label="Вашият код">&lt;style&gt;
+
+&lt;/style&gt;
+&lt;h1&gt;Честита есен!&lt;/h1&gt;
+&lt;p&gt;Листата падат, а ние учим CSS.&lt;/p&gt;
+&lt;p&gt;С обич, 12 клас&lt;/p&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери</button>
+      <button type="button" class="vtori" id="podskazka">Покажи подсказка</button>
+      <button type="button" class="vtori" id="otnachalo">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="test">
+    <span class="etiket">4. Проверка на знанията</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="test">▶ Чети въпросите</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Бързи въпроси</h2>
+    <div class="vapros" data-veren="b" data-obyasnenie="Селекторът избира елементите, а color е свойство и red е стойност.">
+      <fieldset>
+        <legend>1. Как се казва частта <code data-izgovor="ейч едно">h1</code> в правилото <code data-izgovor="ейч едно, колър ред">h1 { color: red; }</code>?</legend>
+        <label><input type="radio" name="v1" value="a"> Свойство.</label>
+        <label><input type="radio" name="v1" value="b"> Селектор.</label>
+        <label><input type="radio" name="v1" value="c"> Стойност.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="color е за текста, background-color е за фона. Свойство font-color няма.">
+      <fieldset>
+        <legend>2. Кое свойство сменя цвета на фона?</legend>
+        <label><input type="radio" name="v2" value="a"> <code data-izgovor="колър">color</code></label>
+        <label><input type="radio" name="v2" value="b"> <code data-izgovor="бекграунд колър">background-color</code></label>
+        <label><input type="radio" name="v2" value="c"> <code data-izgovor="фонт колър">font-color</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="a" data-obyasnenie="Пише се свойство, двоеточие, стойност. Точка и запетая завършва декларацията.">
+      <fieldset>
+        <legend>3. Какъв знак стои между свойството и стойността?</legend>
+        <label><input type="radio" name="v3" value="a"> Двоеточие.</label>
+        <label><input type="radio" name="v3" value="b"> Знак равно.</label>
+        <label><input type="radio" name="v3" value="c"> Точка и запетая.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Всички три цвята са на максимум, затова се получава бяло.">
+      <fieldset>
+        <legend>4. Кой цвят е <code data-izgovor="диез шест пъти еф">#ffffff</code>?</legend>
+        <label><input type="radio" name="v4" value="a"> Черен.</label>
+        <label><input type="radio" name="v4" value="b"> Бял.</label>
+        <label><input type="radio" name="v4" value="c"> Червен.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="butoni"><button type="button" class="proveri-testa">Провери отговорите</button></div>
+    <p class="rezultat" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="sledvashto">
+    <span class="etiket">5. Самостоятелна подготовка</span>
+    <h2>Упражнявайте се, докато стане лесно</h2>
+    <p><a href="../trenirovki/02-css-osnovi.html">Тренировка: CSS основи</a></p>
+    <p>Текст на урока за приложение за четене на глас: <a href="../tekst-za-chetene/css-06-tsvetove.txt">css-06-tsvetove.txt</a>.</p>
+  </section>
+
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.govoreshtUrok({ kutiya: "plejar", redaktor: "r-govoresht", nachalen: "<h1>Зоопарк<\/h1>\n<p>Елате да видите животните.<\/p>\n<p>Отворено всеки ден.<\/p>", sceni: [{"govor": "Имаме обикновена страница без никакъв стил. HTML казва какво е съдържанието. CSS казва как да изглежда. Ще пишем CSS в таг style най-горе.", "izgovor": "Имаме обикновена страница без никакъв стил. HTML казва какво е съдържанието. CSS казва как да изглежда. Ще пишем CSS в таг стайл най-горе.", "kod": "<style>\n<\/style>\n<h1>Зоопарк<\/h1>\n<p>Елате да видите животните.<\/p>\n<p>Отворено всеки ден.<\/p>"}, {"govor": "CSS правилото започва със селектор. Селекторът казва кои елементи да оцветим. Пишем h1, значи всички главни заглавия.", "izgovor": "CSS правилото започва със селектор. Селекторът казва кои елементи да оцветим. Пишем ейч едно, значи всички главни заглавия.", "kod": "<style>\nh1 {\n}\n<\/style>\n<h1>Зоопарк<\/h1>\n<p>Елате да видите животните.<\/p>\n<p>Отворено всеки ден.<\/p>"}, {"govor": "Между фигурните скоби пишем свойство, двоеточие, стойност и точка и запетая. Свойството color сменя цвета на текста.", "izgovor": "Между фигурните скоби пишем свойство, двоеточие, стойност и точка и запетая. Свойството колър сменя цвета на текста.", "kod": "<style>\nh1 {\n  color: green;\n}\n<\/style>\n<h1>Зоопарк<\/h1>\n<p>Елате да видите животните.<\/p>\n<p>Отворено всеки ден.<\/p>"}, {"govor": "Заглавието стана зелено. Сега ще сменим фона на цялата страница. Селекторът е body, а свойството е background-color.", "izgovor": "Заглавието стана зелено. Сега ще сменим фона на цялата страница. Селекторът е боди, а свойството е бекграунд колър.", "kod": "<style>\nh1 {\n  color: green;\n}\nbody {\n  background-color: lightyellow;\n}\n<\/style>\n<h1>Зоопарк<\/h1>\n<p>Елате да видите животните.<\/p>\n<p>Отворено всеки ден.<\/p>"}, {"govor": "Имената на цветовете са на английски. Има и по-точен начин: шестнадесетичен код. Знак диез и шест знака. Първите два са за червено, после зелено, после синьо.", "izgovor": "Имената на цветовете са на английски. Има и по-точен начин: шестнадесетичен код. Знак диез и шест знака. Първите два са за червено, после зелено, после синьо.", "kod": "<style>\nh1 {\n  color: #2e7d32;\n}\nbody {\n  background-color: lightyellow;\n}\n<\/style>\n<h1>Зоопарк<\/h1>\n<p>Елате да видите животните.<\/p>\n<p>Отворено всеки ден.<\/p>"}, {"govor": "Едно правило важи за всички еднакви елементи. Ако напишем правило за p, и двата абзаца се оцветяват наведнъж.", "izgovor": "Едно правило важи за всички еднакви елементи. Ако напишем правило за пи, и двата абзаца се оцветяват наведнъж.", "kod": "<style>\nh1 {\n  color: #2e7d32;\n}\nbody {\n  background-color: lightyellow;\n}\np {\n  color: #5d4037;\n}\n<\/style>\n<h1>Зоопарк<\/h1>\n<p>Елате да видите животните.<\/p>\n<p>Отворено всеки ден.<\/p>"}, {"govor": "Ваш ред е. Сменете цвета на фона с друг, например lightblue, и вижте резултата.", "izgovor": "Ваш ред е. Сменете цвета на фона с друг, например лайт блу, и вижте резултата.", "kod": "<style>\nh1 {\n  color: #2e7d32;\n}\nbody {\n  background-color: lightyellow;\n}\np {\n  color: #5d4037;\n}\n<\/style>\n<h1>Зоопарк<\/h1>\n<p>Елате да видите животните.<\/p>\n<p>Отворено всеки ден.<\/p>"}] });
+  Uchebnik.predizvikatelstvo({
+    redaktor: "r-zadacha", spisak: "stapki", proveri: "proveri", podskazka: "podskazka",
+    otnachalo: "otnachalo", saobshtenie: "saobshtenie", kraj: "Красиво! Вече пишете CSS правила.",
+    proverki: [
+function (d, kod, w, P) {
+var c = P.stil(d.body, "background-color");
+if (!P.imaCvyat(c)) return "Фонът на body още е бял. Добавете background-color в правило за body.";
+if (c === "rgb(255, 255, 255)") return "Изберете цвят, различен от белия.";
+return true;
+},
+function (d, kod, w, P) {
+var c = P.stil(d.querySelector("h1"), "color");
+if (c === "rgb(0, 0, 0)") return "Заглавието още е черно. Добавете color в правило за h1.";
+return true;
+},
+function (d, kod, w, P) {
+var p = d.querySelectorAll("p");
+if (p.length < 2) return "Не изтривайте абзаците.";
+var a = P.stil(p[0], "color"), b = P.stil(p[1], "color");
+if (a === "rgb(0, 0, 0)") return "Абзаците още са черни.";
+if (a !== b) return "Двата абзаца трябва да са в един цвят. Използвайте селектор p.";
+if (/style\s*=/.test(kod)) return "Не пишете стил в атрибут style. Използвайте правило в тага style.";
+return true;
+},
+function (d, kod, w, P) {
+var h = P.stil(d.querySelector("h1"), "background-color");
+if (!P.imaCvyat(h)) return "Заглавието няма собствен фон.";
+if (h === P.stil(d.body, "background-color")) return "Фонът на заглавието е същият като на страницата. Изберете друг цвят.";
+return true;
+}
+    ]
+  });
+  Uchebnik.proverkaNaZnaniyata("test");
+});
+</script>
+</body>
+</html>

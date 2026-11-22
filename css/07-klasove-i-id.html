@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Класове и id: стил само за някои елементи</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 2. CSS основи · Урок 7</p>
+  <h1>Класове и id: стил само за някои елементи</h1>
+  <p class="podzaglavie">Ще научите как да дадете различен стил на елементи от един и същи вид.</p>
+  <p class="podzaglavie">Време: около 30 минути.</p>
+</header>
+
+<main>
+  <section class="karta" id="govoresht">
+    <span class="etiket">1. Видеообяснение</span>
+    <h2>Различни абзаци</h2>
+    <video class="video-urok" controls preload="metadata" src="../video/07-klasove-i-id.mp4"></video>
+    <p>Видеото има глас и субтитри. Под него е същото обяснение, но интерактивно: можете да спрете и да промените кода сами.</p>
+    <p>Натиснете Пусни. Кодът ще се пише сам, а гласът ще обяснява. Можете да спрете по всяко време, да промените кода и да видите какво става.</p>
+    <div class="plejar" id="plejar">
+    <div class="redaktor" id="r-govoresht" data-bez-pamet>
+      <div>
+        <div class="eticheta">Код</div>
+        <textarea spellcheck="false" aria-label="Код">&lt;style&gt;
+p {
+  color: #333;
+}
+&lt;/style&gt;
+&lt;h1&gt;Обява&lt;/h1&gt;
+&lt;p&gt;Утре няма часове.&lt;/p&gt;
+&lt;p&gt;Екскурзията е в петък.&lt;/p&gt;
+&lt;p&gt;Носете вода.&lt;/p&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+      <div class="subtitri" aria-live="polite"></div>
+      <div class="upravlenie">
+        <button type="button" class="nazad vtori" aria-label="Предишна сцена">⏮ Назад</button>
+        <button type="button" class="pusni">▶ Пусни</button>
+        <button type="button" class="napred vtori" aria-label="Следваща сцена">Напред ⏭</button>
+        <label>Скорост на гласа
+          <select class="izbor-skorost">
+            <option value="0.8">бавно</option>
+            <option value="0.95">нормално</option>
+            <option value="1.1">бързо</option>
+          </select>
+        </label>
+        <span class="nomer-scena"></span>
+      </div>
+      <div class="lenta-kutiya"><div class="lenta"></div></div>
+    </div>
+    <p>Гласът работи най-добре в Microsoft Edge, където има български глас. В другите браузъри урокът върви със субтитри.</p>
+  </section>
+  <section class="karta" id="obyasnenie">
+    <span class="etiket">2. Обяснение</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="obyasnenie">▶ Чети на глас</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Три вида селектори</h2>
+    <h3>Селектор по таг</h3>
+    <p>Пише се само името на тага, например <code data-izgovor="пи">p</code>. Важи за всички такива елементи.</p>
+    <h3>Селектор по клас</h3>
+    <p>Пише се точка и името на класа, например <code data-izgovor="точка важно">.vazhno</code>. Важи за всички елементи с <code data-izgovor="клас важно">class=&quot;vazhno&quot;</code>. Много елементи могат да имат един клас, а един елемент може да има няколко класа.</p>
+    <h3>Селектор по id</h3>
+    <p>Пише се диез и името, например <code data-izgovor="диез заглавие">#zaglavie</code>. Важи за единствения елемент с това <code data-izgovor="ай ди">id</code>.</p>
+    <pre class="primer"><code>p { color: #333; }
+.vazhno { color: crimson; }
+#zaglavie { background-color: gold; }</code></pre>
+    <p>Когато няколко правила си противоречат, печели по-точното. Правилото с <code data-izgovor="ай ди">id</code> е по-силно от правилото с клас, а то е по-силно от правилото с таг. Затова абзацът с клас <code data-izgovor="важно">vazhno</code> е червен, въпреки правилото за <code data-izgovor="пи">p</code>.</p>
+    <p>Използвайте класове за стил. Оставете <code data-izgovor="ай ди">id</code> за връзки към място в страницата и за JavaScript.</p>
+  </section>
+  <section class="karta" id="predizvikatelstvo">
+    <span class="etiket">3. Предизвикателство</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="predizvikatelstvo">▶ Чети задачата</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Меню в столовата</h2>
+    <p>Оцветете менюто така, че вегетарианските ястия и ястието на деня да се виждат веднага. Изпълнявайте стъпките една по една. След всяка стъпка натиснете Провери.</p>
+    <ol class="stapki" id="stapki">
+      <li>Дайте клас <code data-izgovor="вегетарианско">vegetariansko</code> на Таратор и на Баница.
+        <p class="podskazka">Подсказка: <code data-izgovor="ел ай клас равно на вегетарианско">&lt;li class=&quot;vegetariansko&quot;&gt;Таратор&lt;/li&gt;</code>.</p></li>
+      <li>Напишете CSS правило за клас <code data-izgovor="вегетарианско">vegetariansko</code>, което прави текста зелен.
+        <p class="podskazka">Подсказка: селекторът за клас започва с точка: <code data-izgovor="точка вегетарианско, колър грийн">.vegetariansko { color: green; }</code>.</p></li>
+      <li>Дайте на Мусака <code data-izgovor="ай ди на деня">id=&quot;na-denya&quot;</code> и с CSS му дайте жълт фон.
+        <p class="podskazka">Подсказка: селекторът за <code data-izgovor="ай ди">id</code> започва с диез: <code data-izgovor="диез на деня">#na-denya</code>.</p></li>
+      <li>Създайте клас <code data-izgovor="ново">novo</code>, който прави текста удебелен със <code data-izgovor="фонт уейт болд">font-weight: bold</code>. Дайте го на Баница като втори клас.
+        <p class="podskazka">Подсказка: двата класа се пишат с интервал: <code data-izgovor="клас вегетарианско интервал ново">class=&quot;vegetariansko novo&quot;</code>.</p></li>
+    </ol>
+    <div class="redaktor" id="r-zadacha">
+      <div>
+        <div class="eticheta">Вашият код</div>
+        <textarea spellcheck="false" aria-label="Вашият код">&lt;style&gt;
+
+&lt;/style&gt;
+&lt;h1&gt;Меню за днес&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Таратор&lt;/li&gt;
+  &lt;li&gt;Пълнени чушки&lt;/li&gt;
+  &lt;li&gt;Мусака&lt;/li&gt;
+  &lt;li&gt;Баница&lt;/li&gt;
+  &lt;li&gt;Пиле с ориз&lt;/li&gt;
+&lt;/ul&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери</button>
+      <button type="button" class="vtori" id="podskazka">Покажи подсказка</button>
+      <button type="button" class="vtori" id="otnachalo">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="test">
+    <span class="etiket">4. Проверка на знанията</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="test">▶ Чети въпросите</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Бързи въпроси</h2>
+    <div class="vapros" data-veren="b" data-obyasnenie="Класът е с точка, а id е с диез.">
+      <fieldset>
+        <legend>1. С какъв знак започва селекторът за клас?</legend>
+        <label><input type="radio" name="v1" value="a"> Диез.</label>
+        <label><input type="radio" name="v1" value="b"> Точка.</label>
+        <label><input type="radio" name="v1" value="c"> Двоеточие.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Класът е за групи елементи. id е за един елемент.">
+      <fieldset>
+        <legend>2. Колко елемента може да имат един и същ клас?</legend>
+        <label><input type="radio" name="v2" value="a"> Само един.</label>
+        <label><input type="radio" name="v2" value="b"> Колкото искаме.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Правилото по клас е по-точно от правилото по таг и печели.">
+      <fieldset>
+        <legend>3. Елемент има правило по таг, по което е син, и правило по клас, по което е червен. Какъв цвят ще има?</legend>
+        <label><input type="radio" name="v3" value="a"> Син.</label>
+        <label><input type="radio" name="v3" value="b"> Червен.</label>
+        <label><input type="radio" name="v3" value="c"> Лилав.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="a" data-obyasnenie="Класовете се пишат в един атрибут, разделени с интервал.">
+      <fieldset>
+        <legend>4. Как се дават два класа на един елемент?</legend>
+        <label><input type="radio" name="v4" value="a"> <code data-izgovor="клас а интервал б">class=&quot;a b&quot;</code></label>
+        <label><input type="radio" name="v4" value="b"> <code data-izgovor="два атрибута клас">class=&quot;a&quot; class=&quot;b&quot;</code></label>
+        <label><input type="radio" name="v4" value="c"> <code data-izgovor="клас а запетая б">class=&quot;a,b&quot;</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="butoni"><button type="button" class="proveri-testa">Провери отговорите</button></div>
+    <p class="rezultat" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="sledvashto">
+    <span class="etiket">5. Самостоятелна подготовка</span>
+    <h2>Упражнявайте се, докато стане лесно</h2>
+    <p><a href="../trenirovki/02-css-osnovi.html">Тренировка: CSS основи</a></p>
+    <p>Текст на урока за приложение за четене на глас: <a href="../tekst-za-chetene/css-07-klasove-i-id.txt">css-07-klasove-i-id.txt</a>.</p>
+  </section>
+
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.govoreshtUrok({ kutiya: "plejar", redaktor: "r-govoresht", nachalen: "<style>\np {\n  color: #333;\n}\n<\/style>\n<h1>Обява<\/h1>\n<p>Утре няма часове.<\/p>\n<p>Екскурзията е в петък.<\/p>\n<p>Носете вода.<\/p>", sceni: [{"govor": "Всички абзаци изглеждат еднакво. Искаме само важните да са червени. Ако сменим правилото за p, ще станат червени всички. Нужен ни е клас.", "izgovor": "Всички абзаци изглеждат еднакво. Искаме само важните да са червени. Ако сменим правилото за пи, ще станат червени всички. Нужен ни е клас.", "kod": "<style>\np {\n  color: #333;\n}\n<\/style>\n<h1>Обява<\/h1>\n<p>Утре няма часове.<\/p>\n<p>Екскурзията е в петък.<\/p>\n<p>Носете вода.<\/p>"}, {"govor": "Даваме на първия абзац атрибут class с име vazhno. Името го измисляме ние. Пишем го на латиница, без интервали.", "izgovor": "Даваме на първия абзац атрибут клас с име важно. Името го измисляме ние. Пишем го на латиница, без интервали.", "kod": "<style>\np {\n  color: #333;\n}\n<\/style>\n<h1>Обява<\/h1>\n<p class=\"vazhno\">Утре няма часове.<\/p>\n<p>Екскурзията е в петък.<\/p>\n<p>Носете вода.<\/p>"}, {"govor": "В CSS селекторът за клас започва с точка. Пишем точка и името на класа.", "izgovor": "В CSS селекторът за клас започва с точка. Пишем точка и името на класа.", "kod": "<style>\np {\n  color: #333;\n}\n.vazhno {\n  color: crimson;\n}\n<\/style>\n<h1>Обява<\/h1>\n<p class=\"vazhno\">Утре няма часове.<\/p>\n<p>Екскурзията е в петък.<\/p>\n<p>Носете вода.<\/p>"}, {"govor": "Един клас може да има много елементи. Даваме същия клас и на третия абзац. И той става червен.", "izgovor": "Един клас може да има много елементи. Даваме същия клас и на третия абзац. И той става червен.", "kod": "<style>\np {\n  color: #333;\n}\n.vazhno {\n  color: crimson;\n}\n<\/style>\n<h1>Обява<\/h1>\n<p class=\"vazhno\">Утре няма часове.<\/p>\n<p>Екскурзията е в петък.<\/p>\n<p class=\"vazhno\">Носете вода.<\/p>"}, {"govor": "Атрибутът id е за един-единствен елемент. В CSS селекторът за id започва с диез.", "izgovor": "Атрибутът ай ди е за един-единствен елемент. В CSS селекторът за ай ди започва с диез.", "kod": "<style>\np {\n  color: #333;\n}\n.vazhno {\n  color: crimson;\n}\n#zaglavie {\n  background-color: gold;\n}\n<\/style>\n<h1 id=\"zaglavie\">Обява<\/h1>\n<p class=\"vazhno\">Утре няма часове.<\/p>\n<p>Екскурзията е в петък.<\/p>\n<p class=\"vazhno\">Носете вода.<\/p>"}, {"govor": "Един елемент може да има два класа, разделени с интервал. Добавяме клас golyamo, който уголемява текста.", "izgovor": "Един елемент може да има два класа, разделени с интервал. Добавяме клас голямо, който уголемява текста.", "kod": "<style>\np {\n  color: #333;\n}\n.vazhno {\n  color: crimson;\n}\n.golyamo {\n  font-size: 24px;\n}\n#zaglavie {\n  background-color: gold;\n}\n<\/style>\n<h1 id=\"zaglavie\">Обява<\/h1>\n<p class=\"vazhno golyamo\">Утре няма часове.<\/p>\n<p>Екскурзията е в петък.<\/p>\n<p class=\"vazhno\">Носете вода.<\/p>"}] });
+  Uchebnik.predizvikatelstvo({
+    redaktor: "r-zadacha", spisak: "stapki", proveri: "proveri", podskazka: "podskazka",
+    otnachalo: "otnachalo", saobshtenie: "saobshtenie", kraj: "Отлично! Менюто е ясно и подредено.",
+    proverki: [
+function (d, kod, w, P) {
+var v = d.querySelectorAll("li.vegetariansko");
+if (v.length < 2) return "Класът vegetariansko трябва да е на два реда. Сега е на " + v.length + ".";
+var t = Array.prototype.map.call(v, P.tekst).join(" ");
+if (t.indexOf("Таратор") === -1 || t.indexOf("Баница") === -1) return "Класът трябва да е на Таратор и на Баница.";
+return true;
+},
+function (d, kod, w, P) {
+var li = d.querySelector("li.vegetariansko");
+var c = P.stil(li, "color");
+if (c === P.stil(d.querySelector("li:not(.vegetariansko)"), "color")) return "Вегетарианските ястия още са в същия цвят. Проверете точката пред името на класа.";
+var m = c.match(/\d+/g).map(Number);
+if (!(m[1] > m[0] && m[1] > m[2])) return "Цветът трябва да е зелен.";
+return true;
+},
+function (d, kod, w, P) {
+var e = d.getElementById("na-denya");
+if (!e) return "Не виждам елемент с id na-denya.";
+if (P.tekst(e).indexOf("Мусака") === -1) return "id na-denya трябва да е на Мусака.";
+if (!P.imaCvyat(P.stil(e, "background-color"))) return "Ястието на деня още няма фон. Проверете диеза в селектора.";
+return true;
+},
+function (d, kod, w, P) {
+var b = Array.prototype.find.call(d.querySelectorAll("li"), function (x) { return P.tekst(x) === "Баница"; });
+if (!b) return "Не намирам Баница в списъка.";
+if (!b.classList.contains("novo")) return "Баница трябва да има и клас novo.";
+if (!b.classList.contains("vegetariansko")) return "Баница трябва да запази и клас vegetariansko.";
+if (Number(P.stil(b, "font-weight")) < 600) return "Баница не е удебелена. Добавете правило за .novo с font-weight: bold.";
+return true;
+}
+    ]
+  });
+  Uchebnik.proverkaNaZnaniyata("test");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML основи</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 1. HTML основи · Тренировка</p>
+  <h1>HTML основи</h1>
+  <p class="podzaglavie">Тагове, заглавия, списъци, снимки, връзки и таблици. Отговорете вярно пет пъти поред.</p>
+</header>
+
+<main>
+  <section class="karta" id="trenirovka">
+    <span class="etiket">Цел: 5 верни отговора поред</span>
+    <p class="broyach"></p>
+    <div class="tochki" aria-hidden="true"></div>
+    <p class="tekst-vapros" aria-live="polite"></p>
+    <div class="pole-otgovor"></div>
+    <p class="obratna-trenirovka saobshtenie" role="status" aria-live="polite"></p>
+    <div class="butoni">
+      <button type="button" class="proveri-otgovor">Провери</button>
+      <button type="button" class="sledvasht" hidden>Следващ въпрос</button>
+      <button type="button" class="vtori cheti-vaprosa">▶ Чети въпроса</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+    </div>
+  </section>
+  <section class="karta">
+    <h2>Как работи тренировката</h2>
+    <p>Въпросите идват в случаен ред. При грешка броячът започва отначало, а под въпроса има обяснение. Това не е наказание, а начин да видите кое още не е сигурно.</p>
+    <p>Ако се затруднявате, върнете се към урока: <a href="../html/01-parvata-stranitsa.html">Урок 1</a> <a href="../html/02-spisatsi.html">Урок 2</a> <a href="../html/03-izobrazheniya.html">Урок 3</a> <a href="../html/04-vrazki.html">Урок 4</a> <a href="../html/05-tablitsi.html">Урок 5</a></p>
+  </section>
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var vaprosi = [{"vid": "izbor", "tekst": "Кой таг е за най-голямото заглавие?", "izgovor": "Кой таг е за най-голямото заглавие?", "obyasnenie": "Заглавията са от h1 до h6. Най-голямо е h1.", "otgovori": ["h1", "h6", "head", "title"], "veren": 0}, {"vid": "izbor", "tekst": "С какво започва затварящият таг?", "izgovor": "С какво започва затварящият таг?", "obyasnenie": "Например затварящият таг на абзац е наклонена черта и p в ъглови скоби.", "otgovori": ["С наклонена черта след ъгловата скоба.", "С удивителен знак.", "С точка."], "veren": 0}, {"vid": "vpishi", "tekst": "Напишете името на тага за абзац, без ъгловите скоби.", "izgovor": "Напишете името на тага за абзац, без ъгловите скоби.", "obyasnenie": "Абзацът се пише с таг p.", "verni": ["p"]}, {"vid": "vpishi", "tekst": "Напишете името на тага за ред в списък, без ъгловите скоби.", "izgovor": "Напишете името на тага за ред в списък, без ъгловите скоби.", "obyasnenie": "Всеки ред от списък е li.", "verni": ["li"]}, {"vid": "izbor", "tekst": "Искате да напишете стъпките за сглобяване на шкаф. Кой списък е подходящ?", "izgovor": "Искате да напишете стъпките за сглобяване на шкаф. Кой списък е подходящ?", "obyasnenie": "Редът на стъпките е важен, затова е подреден списък ol.", "otgovori": ["ol", "ul", "table"], "veren": 0}, {"vid": "izbor", "tekst": "Кой атрибут описва снимката с думи?", "izgovor": "Кой атрибут описва снимката с думи?", "obyasnenie": "Атрибутът alt се чете от програмите за незрящи хора и се показва, ако снимката липсва.", "otgovori": ["alt", "src", "href", "title"], "veren": 0}, {"vid": "vpishi", "tekst": "Кой атрибут на тага a съдържа адреса? Напишете само името му.", "izgovor": "Кой атрибут на тага a съдържа адреса? Напишете само името му.", "obyasnenie": "Адресът на връзката е в href.", "verni": ["href"]}, {"vid": "izbor", "tekst": "Къде води връзка с href=\"#top\"?", "izgovor": "Къде води връзка с ейч реф равно на диез топ?", "obyasnenie": "Знакът диез води до id в същата страница.", "otgovori": ["До елемента с id top в същата страница.", "До сайта top.com.", "До файла top.html."], "veren": 0}, {"vid": "izbor", "tekst": "Кой таг е обикновена клетка в таблица?", "izgovor": "Кой таг е обикновена клетка в таблица?", "obyasnenie": "td е обикновена клетка, th е заглавна, tr е ред.", "otgovori": ["td", "tr", "th", "table"], "veren": 0}, {"vid": "izbor", "tekst": "Кой от тези тагове няма затварящ таг?", "izgovor": "Кой от тези тагове няма затварящ таг?", "obyasnenie": "img няма съдържание, затова няма затварящ таг.", "otgovori": ["img", "p", "li", "a"], "veren": 0}, {"vid": "kod", "tekst": "Направете неподреден списък с три плода.", "izgovor": "Направете неподреден списък с три плода.", "obyasnenie": "Списъкът е ul, а всеки плод е в отделен li.", "nachalen": ""}, {"vid": "kod", "tekst": "Направете заглавие h2 с текст Новини и под него абзац с поне една дума в strong.", "izgovor": "Направете заглавие h2 с текст Новини и под него абзац с поне една дума в strong.", "obyasnenie": "Пример: заглавие h2 Новини, после абзац p с дума в strong.", "nachalen": ""}, {"vid": "kod", "tekst": "Поправете кода, така че снимката да има описание.", "izgovor": "Поправете кода, така че снимката да има описание.", "obyasnenie": "Описанието се пише в атрибута alt вътре в тага img.", "nachalen": "<img src=\"snimki/kniga.svg\">"}, {"vid": "kod", "tekst": "Направете връзка към https://www.mon.bg, която се отваря в нов раздел.", "izgovor": "Направете връзка към https://www.mon.bg, която се отваря в нов раздел.", "obyasnenie": "Връзката е а с href и target равно на _blank.", "nachalen": ""}, {"vid": "kod", "tekst": "Поправете таблицата: във втория ред липсва клетка.", "izgovor": "Поправете таблицата: във втория ред липсва клетка.", "obyasnenie": "Във всеки ред трябва да има толкова клетки, колкото са колоните.", "nachalen": "<table border=\"1\">\n  <tr><th>Град<\/th><th>Жители<\/th><\/tr>\n  <tr><td>Пловдив<\/td><\/tr>\n<\/table>"}];
+  vaprosi[10].proverka = function (d, kod, w, P) {
+var ul = d.querySelector("ul");
+if (!ul) return "Не виждам ul.";
+if (ul.querySelectorAll(":scope > li").length !== 3) return "Нужни са точно три реда li.";
+return true;
+};
+  vaprosi[11].proverka = function (d, kod, w, P) {
+var h2 = d.querySelector("h2");
+if (!h2 || P.tekst(h2) !== "Новини") return "Нужно е заглавие h2 с текст Новини.";
+if (!d.querySelector("h2 ~ p strong")) return "Под заглавието трябва да има абзац с дума в strong.";
+return true;
+};
+  vaprosi[12].proverka = function (d, kod, w, P) {
+var img = d.querySelector("img");
+if (!img) return "Снимката изчезна.";
+if ((img.getAttribute("alt") || "").trim().split(/\s+/).length < 2) return "Добавете alt с поне две думи.";
+return true;
+};
+  vaprosi[13].proverka = function (d, kod, w, P) {
+var a = d.querySelector("a[href*='mon.bg']");
+if (!a) return "Не виждам връзка с href към mon.bg.";
+if (a.getAttribute("target") !== "_blank") return "Добавете target=\"_blank\".";
+if (!P.tekst(a)) return "Връзката няма текст.";
+return true;
+};
+  vaprosi[14].proverka = function (d, kod, w, P) {
+var r = d.querySelectorAll("table tr");
+if (r.length < 2) return "Таблицата трябва да има два реда.";
+if (r[1].querySelectorAll("td").length !== 2) return "Във втория ред трябва да има две клетки td.";
+return true;
+};
+  Uchebnik.trenirovka({ kutiya: "trenirovka", poRed: 5, vaprosi: vaprosi });
+});
+</script>
+</body>
+</html>

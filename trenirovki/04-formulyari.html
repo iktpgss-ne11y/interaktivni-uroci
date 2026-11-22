@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Формуляри</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 4. Формуляри · Тренировка</p>
+  <h1>Формуляри</h1>
+  <p class="podzaglavie">Полета, етикети, избор и бутони. Отговорете вярно пет пъти поред.</p>
+</header>
+
+<main>
+  <section class="karta" id="trenirovka">
+    <span class="etiket">Цел: 5 верни отговора поред</span>
+    <p class="broyach"></p>
+    <div class="tochki" aria-hidden="true"></div>
+    <p class="tekst-vapros" aria-live="polite"></p>
+    <div class="pole-otgovor"></div>
+    <p class="obratna-trenirovka saobshtenie" role="status" aria-live="polite"></p>
+    <div class="butoni">
+      <button type="button" class="proveri-otgovor">Провери</button>
+      <button type="button" class="sledvasht" hidden>Следващ въпрос</button>
+      <button type="button" class="vtori cheti-vaprosa">▶ Чети въпроса</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+    </div>
+  </section>
+  <section class="karta">
+    <h2>Как работи тренировката</h2>
+    <p>Въпросите идват в случаен ред. При грешка броячът започва отначало, а под въпроса има обяснение. Това не е наказание, а начин да видите кое още не е сигурно.</p>
+    <p>Ако се затруднявате, върнете се към урока: <a href="../formulyari/14-parviyat-formulyar.html">Урок 14</a> <a href="../formulyari/15-vidove-poleta.html">Урок 15</a></p>
+  </section>
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var vaprosi = [{"vid": "izbor", "tekst": "Кой таг обгражда целия формуляр?", "izgovor": "Кой таг обгражда целия формуляр?", "obyasnenie": "Формулярът е form.", "otgovori": ["form", "input", "fieldset"], "veren": 0}, {"vid": "vpishi", "tekst": "Кой атрибут на етикета се свързва с id на полето? Напишете само името.", "izgovor": "Кой атрибут на етикета се свързва с id на полето? Напишете само името.", "obyasnenie": "Атрибутът е for.", "verni": ["for"]}, {"vid": "vpishi", "tekst": "Кой атрибут прави полето задължително?", "izgovor": "Кой атрибут прави полето задължително?", "obyasnenie": "required.", "verni": ["required"]}, {"vid": "izbor", "tekst": "Кое поле е подходящо за избор на един от петте дни на седмицата?", "izgovor": "Кое поле е подходящо за избор на един от петте дни на седмицата?", "obyasnenie": "Един избор от няколко е радио или select.", "otgovori": ["Радио бутони или падащ списък.", "Отметки.", "Голямо поле за текст."], "veren": 0}, {"vid": "izbor", "tekst": "Кой тип поле показва на телефона клавиатура с маймунка?", "izgovor": "Кой тип поле показва на телефона клавиатура с маймунка?", "obyasnenie": "type email.", "otgovori": ["email", "text", "number"], "veren": 0}, {"vid": "izbor", "tekst": "Кой таг е ред в падащ списък?", "izgovor": "Кой таг е ред в падащ списък?", "obyasnenie": "Падащият списък select има редове option.", "otgovori": ["option", "li", "item"], "veren": 0}, {"vid": "izbor", "tekst": "Без кой атрибут стойността на полето не се изпраща към сървъра?", "izgovor": "Без кой атрибут стойността на полето не се изпраща към сървъра?", "obyasnenie": "Сървърът получава стойностите по name.", "otgovori": ["name", "id", "placeholder"], "veren": 0}, {"vid": "kod", "tekst": "Добавете етикет Град, свързан с полето.", "izgovor": "Добавете етикет Град, свързан с полето.", "obyasnenie": "label for равно на id на полето.", "nachalen": "<form>\n  \n  <input type=\"text\" id=\"grad\" name=\"grad\">\n<\/form>"}, {"vid": "kod", "tekst": "Поправете радио бутоните, така че да може да се избере само един.", "izgovor": "Поправете радио бутоните, така че да може да се избере само един.", "obyasnenie": "Еднакво name, различно value.", "nachalen": "<label><input type=\"radio\" name=\"da\" value=\"da\"> Да<\/label>\n<label><input type=\"radio\" name=\"ne\" value=\"ne\"> Не<\/label>"}, {"vid": "kod", "tekst": "Направете поле за число от 0 до 100.", "izgovor": "Направете поле за число от 0 до 100.", "obyasnenie": "input type number с min и max.", "nachalen": ""}];
+  vaprosi[7].proverka = function (d, kod, w, P) {
+if (!d.querySelector("label[for='grad']")) return "Нужен е label с for=\"grad\"."; return true;
+};
+  vaprosi[8].proverka = function (d, kod, w, P) {
+var r = d.querySelectorAll("input[type='radio']"); if (r.length !== 2) return "Трябва да има два радио бутона."; if (r[0].name !== r[1].name) return "Бутоните трябва да имат еднакво name."; if (r[0].value === r[1].value) return "Бутоните трябва да имат различно value."; return true;
+};
+  vaprosi[9].proverka = function (d, kod, w, P) {
+var i = d.querySelector("input[type='number']"); if (!i) return "Нужно е input type=\"number\"."; if (i.min !== "0" || i.max !== "100") return "Задайте min=\"0\" и max=\"100\"."; return true;
+};
+  Uchebnik.trenirovka({ kutiya: "trenirovka", poRed: 5, vaprosi: vaprosi });
+});
+</script>
+</body>
+</html>

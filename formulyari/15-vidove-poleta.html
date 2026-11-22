@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Видове полета: имейл, число, избор и текст</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 4. Формуляри · Урок 15</p>
+  <h1>Видове полета: имейл, число, избор и текст</h1>
+  <p class="podzaglavie">Ще научите полетата за имейл и число, избор с радио бутони и отметки, падащ списък и голямо поле за текст.</p>
+  <p class="podzaglavie">Време: около 40 минути.</p>
+</header>
+
+<main>
+  <section class="karta" id="govoresht">
+    <span class="etiket">1. Видеообяснение</span>
+    <h2>Полета за избор</h2>
+    <video class="video-urok" controls preload="metadata" src="../video/15-vidove-poleta.mp4"></video>
+    <p>Видеото има глас и субтитри. Под него е същото обяснение, но интерактивно: можете да спрете и да промените кода сами.</p>
+    <p>Натиснете Пусни. Кодът ще се пише сам, а гласът ще обяснява. Можете да спрете по всяко време, да промените кода и да видите какво става.</p>
+    <div class="plejar" id="plejar">
+    <div class="redaktor" id="r-govoresht" data-bez-pamet>
+      <div>
+        <div class="eticheta">Код</div>
+        <textarea spellcheck="false" aria-label="Код">&lt;form&gt;
+&lt;/form&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+      <div class="subtitri" aria-live="polite"></div>
+      <div class="upravlenie">
+        <button type="button" class="nazad vtori" aria-label="Предишна сцена">⏮ Назад</button>
+        <button type="button" class="pusni">▶ Пусни</button>
+        <button type="button" class="napred vtori" aria-label="Следваща сцена">Напред ⏭</button>
+        <label>Скорост на гласа
+          <select class="izbor-skorost">
+            <option value="0.8">бавно</option>
+            <option value="0.95">нормално</option>
+            <option value="1.1">бързо</option>
+          </select>
+        </label>
+        <span class="nomer-scena"></span>
+      </div>
+      <div class="lenta-kutiya"><div class="lenta"></div></div>
+    </div>
+    <p>Гласът работи най-добре в Microsoft Edge, където има български глас. В другите браузъри урокът върви със субтитри.</p>
+  </section>
+  <section class="karta" id="obyasnenie">
+    <span class="etiket">2. Обяснение</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="obyasnenie">▶ Чети на глас</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Полета за всеки вид информация</h2>
+    <h3>Имейл и число</h3>
+    <p><code data-izgovor="тип имейл">type=&quot;email&quot;</code> проверява дали има знак маймунка. На телефон показва клавиатура с маймунка. <code data-izgovor="тип нъмбър">type=&quot;number&quot;</code> приема само числа. С <code data-izgovor="мин">min</code> и <code data-izgovor="макс">max</code> задавате граници.</p>
+    <h3>Един избор от няколко</h3>
+    <p>Радио бутоните са <code data-izgovor="тип радио">type=&quot;radio&quot;</code>. Всички бутони от една група имат еднакво <code data-izgovor="нейм">name</code>. Затова може да е избран само един. Атрибутът <code data-izgovor="валю">value</code> е стойността, която се изпраща.</p>
+    <h3>Много избори</h3>
+    <p>Отметките са <code data-izgovor="тип чекбокс">type=&quot;checkbox&quot;</code>. Можете да изберете колкото искате.</p>
+    <h3>Падащ списък и голям текст</h3>
+    <p>Падащият списък е <code data-izgovor="селект">select</code> с редове <code data-izgovor="опшън">option</code>. Голямото поле за текст е <code data-izgovor="текстерия">textarea</code>. То има затварящ таг, а броят редове се задава с <code data-izgovor="роус">rows</code>.</p>
+    <pre class="primer"><code>&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;smyana&quot; value=&quot;parva&quot;&gt; първа&lt;/label&gt;
+&lt;select name=&quot;grad&quot;&gt;
+  &lt;option&gt;София&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+    <p>Етикетът може да обгражда полето. Тогава не е нужен <code data-izgovor="фор">for</code>. Това е удобно при радио бутони и отметки.</p>
+  </section>
+  <section class="karta" id="primer">
+    <span class="etiket">3. Пример на живо</span>
+    <h2>Опитайте сами</h2>
+    <p>Тук са всички полета от урока. Пробвайте ги вдясно. Напишете грешен имейл и натиснете Изпрати. Изберете два радио бутона един след друг и вижте какво става.</p>
+    <div class="redaktor" id="r-primer">
+      <div>
+        <div class="eticheta">Код</div>
+        <textarea spellcheck="false" aria-label="Код">&lt;form&gt;
+  &lt;label for=&quot;email&quot;&gt;Имейл&lt;/label&gt;
+  &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot;&gt;
+
+  &lt;label for=&quot;vazrast&quot;&gt;Възраст&lt;/label&gt;
+  &lt;input type=&quot;number&quot; id=&quot;vazrast&quot; name=&quot;vazrast&quot; min=&quot;14&quot; max=&quot;20&quot;&gt;
+
+  &lt;p&gt;Смяна:&lt;/p&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;smyana&quot; value=&quot;parva&quot;&gt; първа&lt;/label&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;smyana&quot; value=&quot;vtora&quot;&gt; втора&lt;/label&gt;
+
+  &lt;p&gt;Интереси:&lt;/p&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;interes&quot; value=&quot;sport&quot;&gt; спорт&lt;/label&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;interes&quot; value=&quot;muzika&quot;&gt; музика&lt;/label&gt;
+
+  &lt;label for=&quot;grad&quot;&gt;Град&lt;/label&gt;
+  &lt;select id=&quot;grad&quot; name=&quot;grad&quot;&gt;
+    &lt;option&gt;София&lt;/option&gt;
+    &lt;option&gt;Пловдив&lt;/option&gt;
+    &lt;option&gt;Варна&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;label for=&quot;komentar&quot;&gt;Коментар&lt;/label&gt;
+  &lt;textarea id=&quot;komentar&quot; name=&quot;komentar&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Изпрати&lt;/button&gt;
+&lt;/form&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni"><button type="button" class="vtori" data-nulirai="r-primer">Върни началния код</button></div>
+  </section>
+  <section class="karta" id="predizvikatelstvo">
+    <span class="etiket">4. Предизвикателство</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="predizvikatelstvo">▶ Чети задачата</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Поръчка на пица</h2>
+    <p>Направете формуляр за поръчка на пица за класа. Изпълнявайте стъпките една по една. След всяка стъпка натиснете Провери.</p>
+    <ol class="stapki" id="stapki">
+      <li>Добавете задължително поле за имейл с етикет.
+        <p class="podskazka">Подсказка: <code data-izgovor="инпут тип имейл, задължително">&lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required&gt;</code> и <code data-izgovor="лейбъл">label</code> с <code data-izgovor="фор имейл">for=&quot;email&quot;</code>.</p></li>
+      <li>Добавете три радио бутона за размер: малка, средна и голяма. Може да се избере само един.
+        <p class="podskazka">Подсказка: трите имат <code data-izgovor="тип радио">type=&quot;radio&quot;</code>, еднакво <code data-izgovor="нейм размер">name=&quot;razmer&quot;</code> и различно <code data-izgovor="валю">value</code>.</p></li>
+      <li>Добавете поне две отметки за добавки.
+        <p class="podskazka">Подсказка: <code data-izgovor="тип чекбокс">type=&quot;checkbox&quot;</code>, всяка в етикет.</p></li>
+      <li>Добавете поле за брой пици от едно до десет.
+        <p class="podskazka">Подсказка: <code data-izgovor="инпут тип нъмбър, мин едно, макс десет">&lt;input type=&quot;number&quot; min=&quot;1&quot; max=&quot;10&quot;&gt;</code>.</p></li>
+      <li>Добавете голямо поле за бележка с етикет.
+        <p class="podskazka">Подсказка: <code data-izgovor="текстерия">&lt;textarea id=&quot;zabelezhka&quot; name=&quot;zabelezhka&quot;&gt;&lt;/textarea&gt;</code>. Не забравяйте затварящия таг.</p></li>
+    </ol>
+    <div class="redaktor" id="r-zadacha">
+      <div>
+        <div class="eticheta">Вашият код</div>
+        <textarea spellcheck="false" aria-label="Вашият код">&lt;h1&gt;Поръчка на пица&lt;/h1&gt;
+&lt;form&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Поръчай&lt;/button&gt;
+&lt;/form&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери</button>
+      <button type="button" class="vtori" id="podskazka">Покажи подсказка</button>
+      <button type="button" class="vtori" id="otnachalo">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="test">
+    <span class="etiket">5. Проверка на знанията</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="test">▶ Чети въпросите</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Бързи въпроси</h2>
+    <div class="vapros" data-veren="b" data-obyasnenie="Радио бутоните с еднакво name са една група.">
+      <fieldset>
+        <legend>1. Как се прави така, че от група радио бутони да може да се избере само един?</legend>
+        <label><input type="radio" name="v1" value="a"> Еднакво <code data-izgovor="ай ди">id</code>.</label>
+        <label><input type="radio" name="v1" value="b"> Еднакво <code data-izgovor="нейм">name</code>.</label>
+        <label><input type="radio" name="v1" value="c"> Еднакво <code data-izgovor="валю">value</code>.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Отметките позволяват много избори.">
+      <fieldset>
+        <legend>2. Кое поле е за много избори едновременно?</legend>
+        <label><input type="radio" name="v2" value="a"> <code data-izgovor="радио">radio</code></label>
+        <label><input type="radio" name="v2" value="b"> <code data-izgovor="чекбокс">checkbox</code></label>
+        <label><input type="radio" name="v2" value="c"> <code data-izgovor="селект">select</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="a" data-obyasnenie="За разлика от input, textarea има затварящ таг.">
+      <fieldset>
+        <legend>3. Има ли <code data-izgovor="текстерия">textarea</code> затварящ таг?</legend>
+        <label><input type="radio" name="v3" value="a"> Да.</label>
+        <label><input type="radio" name="v3" value="b"> Не.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Браузърът проверява за знак маймунка и показва подходяща клавиатура.">
+      <fieldset>
+        <legend>4. Какво прави <code data-izgovor="тип имейл">type=&quot;email&quot;</code>?</legend>
+        <label><input type="radio" name="v4" value="a"> Изпраща имейл.</label>
+        <label><input type="radio" name="v4" value="b"> Проверява дали текстът прилича на имейл.</label>
+        <label><input type="radio" name="v4" value="c"> Скрива текста.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="butoni"><button type="button" class="proveri-testa">Провери отговорите</button></div>
+    <p class="rezultat" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="sledvashto">
+    <span class="etiket">6. Самостоятелна подготовка</span>
+    <h2>Упражнявайте се, докато стане лесно</h2>
+    <p><a href="../trenirovki/04-formulyari.html">Тренировка: формуляри</a></p>
+    <p><a href="../proekti/04-anketa.html">Проект: Анкета за класа</a></p>
+    <p>Текст на урока за приложение за четене на глас: <a href="../tekst-za-chetene/formulyari-15-vidove-poleta.txt">formulyari-15-vidove-poleta.txt</a>.</p>
+  </section>
+
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.govoreshtUrok({ kutiya: "plejar", redaktor: "r-govoresht", nachalen: "<form>\n<\/form>", sceni: [{"govor": "Ще питаме ученика в коя смяна учи. Тук има само един верен отговор, затова използваме радио бутон, type=\"radio\". Слагаме го вътре в етикета.", "izgovor": "Ще питаме ученика в коя смяна учи. Тук има само един верен отговор, затова използваме радио бутон, тип радио. Слагаме го вътре в етикета.", "kod": "<form>\n  <p>Смяна:<\/p>\n  <label><input type=\"radio\" name=\"smyana\" value=\"parva\"> първа<\/label>\n<\/form>"}, {"govor": "Добавяме втори бутон. Важно е двата да имат еднакво name. Така браузърът знае, че са една група, и позволява да изберете само един. Пробвайте вдясно.", "izgovor": "Добавяме втори бутон. Важно е двата да имат еднакво нейм. Така браузърът знае, че са една група, и позволява да изберете само един. Пробвайте вдясно.", "kod": "<form>\n  <p>Смяна:<\/p>\n  <label><input type=\"radio\" name=\"smyana\" value=\"parva\"> първа<\/label>\n  <label><input type=\"radio\" name=\"smyana\" value=\"vtora\"> втора<\/label>\n<\/form>"}, {"govor": "За интересите може да има много отговори. Тук използваме отметки, type=\"checkbox\". Можете да отметнете и двете.", "izgovor": "За интересите може да има много отговори. Тук използваме отметки, тип чекбокс. Можете да отметнете и двете.", "kod": "<form>\n  <p>Смяна:<\/p>\n  <label><input type=\"radio\" name=\"smyana\" value=\"parva\"> първа<\/label>\n  <label><input type=\"radio\" name=\"smyana\" value=\"vtora\"> втора<\/label>\n  <p>Интереси:<\/p>\n  <label><input type=\"checkbox\" name=\"interes\" value=\"sport\"> спорт<\/label>\n  <label><input type=\"checkbox\" name=\"interes\" value=\"muzika\"> музика<\/label>\n<\/form>"}, {"govor": "Когато изборите са много, падащият списък пести място. Пишем select, а вътре всеки избор е option.", "izgovor": "Когато изборите са много, падащият списък пести място. Пишем селект, а вътре всеки избор е опшън.", "kod": "<form>\n  <p>Смяна:<\/p>\n  <label><input type=\"radio\" name=\"smyana\" value=\"parva\"> първа<\/label>\n  <label><input type=\"radio\" name=\"smyana\" value=\"vtora\"> втора<\/label>\n  <p>Интереси:<\/p>\n  <label><input type=\"checkbox\" name=\"interes\" value=\"sport\"> спорт<\/label>\n  <label><input type=\"checkbox\" name=\"interes\" value=\"muzika\"> музика<\/label>\n  <label for=\"grad\">Град<\/label>\n  <select id=\"grad\" name=\"grad\">\n    <option>София<\/option>\n    <option>Пловдив<\/option>\n  <\/select>\n<\/form>"}, {"govor": "Накрая голямо поле за свободен текст: textarea. Броят на редовете се задава с rows.", "izgovor": "Накрая голямо поле за свободен текст: текстерия. Броят на редовете се задава с роус.", "kod": "<form>\n  <p>Смяна:<\/p>\n  <label><input type=\"radio\" name=\"smyana\" value=\"parva\"> първа<\/label>\n  <label><input type=\"radio\" name=\"smyana\" value=\"vtora\"> втора<\/label>\n  <p>Интереси:<\/p>\n  <label><input type=\"checkbox\" name=\"interes\" value=\"sport\"> спорт<\/label>\n  <label><input type=\"checkbox\" name=\"interes\" value=\"muzika\"> музика<\/label>\n  <label for=\"grad\">Град<\/label>\n  <select id=\"grad\" name=\"grad\">\n    <option>София<\/option>\n    <option>Пловдив<\/option>\n  <\/select>\n  <label for=\"komentar\">Коментар<\/label>\n  <textarea id=\"komentar\" name=\"komentar\" rows=\"3\"><\/textarea>\n<\/form>"}] });
+  Uchebnik.predizvikatelstvo({
+    redaktor: "r-zadacha", spisak: "stapki", proveri: "proveri", podskazka: "podskazka",
+    otnachalo: "otnachalo", saobshtenie: "saobshtenie", kraj: "Поръчката е готова. Всички видове полета са на място.",
+    proverki: [
+function (d, kod, w, P) {
+var i = d.querySelector("input[type='email']"); if (!i) return "Не виждам поле type=\"email\"."; if (!i.required) return "Полето за имейл трябва да е задължително."; if (!i.id || !d.querySelector("label[for='" + i.id + "']")) return "Полето за имейл няма свързан етикет."; return true;
+},
+function (d, kod, w, P) {
+var r = d.querySelectorAll("input[type='radio']"); if (r.length < 3) return "Нужни са три радио бутона."; var n = r[0].name; if (!n) return "Радио бутоните нямат name."; for (var i = 0; i < r.length; i++) if (r[i].name !== n) return "Всички радио бутони трябва да имат еднакво name."; var v = Array.prototype.map.call(r, function (x) { return x.value; }); if (new Set(v).size < 3 || v.indexOf("on") !== -1) return "Дайте на всеки радио бутон различно value."; if (!r[0].closest("label") && !d.querySelector("label[for='" + r[0].id + "']")) return "Сложете всеки радио бутон в етикет."; return true;
+},
+function (d, kod, w, P) {
+if (d.querySelectorAll("input[type='checkbox']").length < 2) return "Нужни са поне две отметки."; return true;
+},
+function (d, kod, w, P) {
+var i = d.querySelector("input[type='number']"); if (!i) return "Не виждам поле type=\"number\"."; if (i.min !== "1" || i.max !== "10") return "Задайте min=\"1\" и max=\"10\"."; return true;
+},
+function (d, kod, w, P) {
+var t = d.querySelector("form textarea"); if (!t) return "Не виждам textarea във формуляра."; if (!t.id || !d.querySelector("label[for='" + t.id + "']")) return "Полето за бележка няма етикет."; return true;
+}
+    ]
+  });
+  Uchebnik.proverkaNaZnaniyata("test");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Семейна рецепта</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 1. HTML основи · Проект</p>
+  <h1>Семейна рецепта</h1>
+  <p class="podzaglavie">Направете страница с любима рецепта от вашето семейство. Използвайте всичко от модула.</p>
+</header>
+
+<main>
+  <section class="karta" id="zadanie">
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="zadanie">▶ Чети заданието</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Задание</h2>
+    <p>Изберете ястие, което се прави у вас. Може да е баница, сарми, сладкиш или нещо съвсем просто.</p>
+    <p>Страницата трябва да е подредена така, че човек да може да сготви по нея. Помислете какво му трябва да знае първо.</p>
+    <p>В папка <code data-izgovor="снимки">snimki</code> има готова снимка <code data-izgovor="питка">pitka.svg</code>. Можете да използвате и снимка от интернет с пълен адрес.</p>
+    <h3>Задължителни изисквания</h3>
+    <ul class="iziskvaniya" id="iziskvaniya">
+      <li>Главно заглавие <code data-izgovor="ейч едно">h1</code> с името на ястието.<p class="obratna"></p></li>
+      <li>Снимка с описание в <code data-izgovor="алт">alt</code>.<p class="obratna"></p></li>
+      <li>Неподреден списък с продуктите, поне четири.<p class="obratna"></p></li>
+      <li>Подреден списък със стъпките, поне три.<p class="obratna"></p></li>
+      <li>Таблица с поне два реда, например време за приготвяне и брой порции.<p class="obratna"></p></li>
+      <li>Поне две подзаглавия <code data-izgovor="ейч две">h2</code>, например Продукти и Приготвяне.<p class="obratna"></p></li>
+      <li>Връзка към място в страницата, например от началото до стъпките.<p class="obratna"></p></li>
+    </ul>
+    <h3>Идеи, ако искате повече</h3>
+    <ul>
+      <li>Добавете абзац с история: кой в семейството прави това ястие и кога.</li>
+      <li>Отбележете с <code data-izgovor="стронг">strong</code> най-важната стъпка, която не бива да се пропуска.</li>
+      <li>Добавете връзка към друга рецепта в интернет, която се отваря в нов раздел.</li>
+    </ul>
+  </section>
+  <section class="karta">
+    <div class="redaktor" id="r-proekt">
+      <div>
+        <div class="eticheta">Вашият проект</div>
+        <textarea spellcheck="false" aria-label="Вашият проект">&lt;h1&gt;Рецепта: &lt;/h1&gt;
+</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери изискванията</button>
+      <button type="button" class="vtori" data-nulirai="r-proekt">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+    <p>Кодът се пази в този браузър. За да го предадете, копирайте го в нов файл index.html или го качете в GitHub.</p>
+  </section>
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.proekt({ redaktor: "r-proekt", spisak: "iziskvaniya", proveri: "proveri", saobshtenie: "saobshtenie",
+    proverki: [
+function (d, kod, w, P) {
+var h = d.querySelector("h1"); if (!h || P.tekst(h).length < 10) return "Допишете заглавието с името на ястието."; return true;
+},
+function (d, kod, w, P) {
+var i = d.querySelector("img"); if (!i) return "Няма снимка."; if (!(i.getAttribute("alt") || "").trim()) return "Снимката няма alt."; return true;
+},
+function (d, kod, w, P) {
+var u = d.querySelector("ul"); if (!u || u.querySelectorAll("li").length < 4) return "Нужен е ul с поне четири продукта."; return true;
+},
+function (d, kod, w, P) {
+var o = d.querySelector("ol"); if (!o || o.querySelectorAll("li").length < 3) return "Нужен е ol с поне три стъпки."; return true;
+},
+function (d, kod, w, P) {
+var t = d.querySelector("table"); if (!t || t.querySelectorAll("tr").length < 2) return "Нужна е таблица с поне два реда."; return true;
+},
+function (d, kod, w, P) {
+if (d.querySelectorAll("h2").length < 2) return "Нужни са поне две подзаглавия h2."; return true;
+},
+function (d, kod, w, P) {
+var a = d.querySelector("a[href^='#']"); if (!a) return "Няма връзка с диез."; var id = a.getAttribute("href").slice(1); if (!id || !d.getElementById(id)) return "Няма елемент с id " + id + "."; return true;
+}
+    ] });
+});
+</script>
+</body>
+</html>

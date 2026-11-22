@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Първата ми уеб страница: заглавия и абзаци</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 1. HTML основи · Урок 1</p>
+  <h1>Първата ми уеб страница: заглавия и абзаци</h1>
+  <p class="podzaglavie">Ще научите какво е таг и елемент и ще напишете страница със заглавия, абзаци и важни думи.</p>
+  <p class="podzaglavie">Време: около 30 минути.</p>
+</header>
+
+<main>
+  <section class="karta" id="govoresht">
+    <span class="etiket">1. Видеообяснение</span>
+    <h2>Пишем първата страница</h2>
+    <video class="video-urok" controls preload="metadata" src="../video/01-parvata-stranitsa.mp4"></video>
+    <p>Видеото има глас и субтитри. Под него е същото обяснение, но интерактивно: можете да спрете и да промените кода сами.</p>
+    <p>Натиснете Пусни. Кодът ще се пише сам, а гласът ще обяснява. Можете да спрете по всяко време, да промените кода и да видите какво става.</p>
+    <div class="plejar" id="plejar">
+    <div class="redaktor" id="r-govoresht" data-bez-pamet>
+      <div>
+        <div class="eticheta">Код</div>
+        <textarea spellcheck="false" aria-label="Код"></textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+      <div class="subtitri" aria-live="polite"></div>
+      <div class="upravlenie">
+        <button type="button" class="nazad vtori" aria-label="Предишна сцена">⏮ Назад</button>
+        <button type="button" class="pusni">▶ Пусни</button>
+        <button type="button" class="napred vtori" aria-label="Следваща сцена">Напред ⏭</button>
+        <label>Скорост на гласа
+          <select class="izbor-skorost">
+            <option value="0.8">бавно</option>
+            <option value="0.95">нормално</option>
+            <option value="1.1">бързо</option>
+          </select>
+        </label>
+        <span class="nomer-scena"></span>
+      </div>
+      <div class="lenta-kutiya"><div class="lenta"></div></div>
+    </div>
+    <p>Гласът работи най-добре в Microsoft Edge, където има български глас. В другите браузъри урокът върви със субтитри.</p>
+  </section>
+  <section class="karta" id="obyasnenie">
+    <span class="etiket">2. Обяснение</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="obyasnenie">▶ Чети на глас</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Тагове, елементи и заглавия</h2>
+    <p>Уеб страницата е обикновен текстов файл. Браузърът го чете отгоре надолу и търси тагове. Таговете казват какво е всяко парче текст.</p>
+    <p>Тагът е дума в ъглови скоби, например <code data-izgovor="ейч едно">&lt;h1&gt;</code>. Повечето тагове вървят по двойки: отварящ и затварящ. Затварящият има наклонена черта, например <code data-izgovor="затварящ ейч едно">&lt;/h1&gt;</code>.</p>
+    <p>Отварящият таг, съдържанието и затварящият таг заедно образуват елемент.</p>
+    <pre class="primer"><code>&lt;h1&gt;Котката Мица&lt;/h1&gt;
+&lt;p&gt;Мица обича да &lt;strong&gt;спи&lt;/strong&gt;.&lt;/p&gt;</code></pre>
+    <p>Заглавията са шест вида, от <code data-izgovor="ейч едно">h1</code> до <code data-izgovor="ейч шест">h6</code>. Колкото по-малко е числото, толкова по-важно е заглавието. На една страница обикновено има само едно <code data-izgovor="ейч едно">h1</code>.</p>
+    <p>Абзаците се пишат с <code data-izgovor="пи">p</code>. Важните думи се слагат в <code data-izgovor="стронг">strong</code>, а думите, които искаме да подчертаем с глас, се слагат в <code data-izgovor="ем">em</code>. Браузърът показва <code data-izgovor="ем">em</code> с наклонен шрифт.</p>
+    <p>Браузърът не обръща внимание на много интервали и нови редове в кода. Ако искате нов абзац, трябва нов таг <code data-izgovor="пи">p</code>.</p>
+  </section>
+  <section class="karta" id="predizvikatelstvo">
+    <span class="etiket">3. Предизвикателство</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="predizvikatelstvo">▶ Чети задачата</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Страница за любимата ми книга</h2>
+    <p>Направете малка страница за книга, която харесвате. Изпълнявайте стъпките една по една. След всяка стъпка натиснете Провери.</p>
+    <ol class="stapki" id="stapki">
+      <li>Добавете главно заглавие с името на книгата. Използвайте <code data-izgovor="ейч едно">h1</code>.
+        <p class="podskazka">Подсказка: напишете <code data-izgovor="ейч едно">&lt;h1&gt;</code>, после името на книгата, после <code data-izgovor="затварящ ейч едно">&lt;/h1&gt;</code>.</p></li>
+      <li>Под заглавието добавете абзац с името на автора. Използвайте <code data-izgovor="пи">p</code>.
+        <p class="podskazka">Подсказка: абзацът изглежда така: <code data-izgovor="пи, автор, затварящ пи">&lt;p&gt;Автор: ...&lt;/p&gt;</code>.</p></li>
+      <li>Добавете подзаглавие „За какво е книгата“ с <code data-izgovor="ейч две">h2</code>.
+        <p class="podskazka">Подсказка: подзаглавието е по-малко от главното, затова е <code data-izgovor="ейч две">h2</code>.</p></li>
+      <li>Под подзаглавието напишете нов абзац с поне две изречения.
+        <p class="podskazka">Подсказка: всяко изречение завършва с точка. Абзацът трябва да е след <code data-izgovor="ейч две">h2</code>.</p></li>
+      <li>В последния абзац направете една важна дума удебелена с таг <code data-izgovor="стронг">strong</code>.
+        <p class="podskazka">Подсказка: сложете думата между <code data-izgovor="стронг">&lt;strong&gt;</code> и <code data-izgovor="затварящ стронг">&lt;/strong&gt;</code>, вътре в абзаца.</p></li>
+    </ol>
+    <div class="redaktor" id="r-zadacha">
+      <div>
+        <div class="eticheta">Вашият код</div>
+        <textarea spellcheck="false" aria-label="Вашият код"></textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери</button>
+      <button type="button" class="vtori" id="podskazka">Покажи подсказка</button>
+      <button type="button" class="vtori" id="otnachalo">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="test">
+    <span class="etiket">4. Проверка на знанията</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="test">▶ Чети въпросите</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Бързи въпроси</h2>
+    <div class="vapros" data-veren="b" data-obyasnenie="Затварящият таг има наклонена черта пред името.">
+      <fieldset>
+        <legend>1. Кой е затварящият таг за абзац?</legend>
+        <label><input type="radio" name="v1" value="a"> <code data-izgovor="пи">&lt;p&gt;</code></label>
+        <label><input type="radio" name="v1" value="b"> <code data-izgovor="наклонена черта и пи">&lt;/p&gt;</code></label>
+        <label><input type="radio" name="v1" value="c"> <code data-izgovor="пи и наклонена черта">&lt;p/&gt;</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="a" data-obyasnenie="Колкото по-малко е числото, толкова по-важно е заглавието.">
+      <fieldset>
+        <legend>2. Кое заглавие е най-важно на страницата?</legend>
+        <label><input type="radio" name="v2" value="a"> <code data-izgovor="ейч едно">h1</code></label>
+        <label><input type="radio" name="v2" value="b"> <code data-izgovor="ейч три">h3</code></label>
+        <label><input type="radio" name="v2" value="c"> <code data-izgovor="ейч шест">h6</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="c" data-obyasnenie="Елементът е целият запис: отварящ таг, съдържание и затварящ таг.">
+      <fieldset>
+        <legend>3. Какво е елемент в HTML?</legend>
+        <label><input type="radio" name="v3" value="a"> Само думата в ъгловите скоби.</label>
+        <label><input type="radio" name="v3" value="b"> Само текстът, който се вижда на екрана.</label>
+        <label><input type="radio" name="v3" value="c"> Отварящият таг, съдържанието и затварящият таг заедно.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Браузърът пренебрегва новите редове в кода. За нов абзац трябва нов таг p.">
+      <fieldset>
+        <legend>4. Написали сте два реда текст в един и същ абзац. Какво ще покаже браузърът?</legend>
+        <label><input type="radio" name="v4" value="a"> Два отделни абзаца.</label>
+        <label><input type="radio" name="v4" value="b"> Един абзац, редовете са слепени.</label>
+        <label><input type="radio" name="v4" value="c"> Грешка.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="butoni"><button type="button" class="proveri-testa">Провери отговорите</button></div>
+    <p class="rezultat" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="sledvashto">
+    <span class="etiket">5. Самостоятелна подготовка</span>
+    <h2>Упражнявайте се, докато стане лесно</h2>
+    <p><a href="../trenirovki/01-html-osnovi.html">Тренировка: HTML основи</a></p>
+    <p>Текст на урока за приложение за четене на глас: <a href="../tekst-za-chetene/html-01-parvata-stranitsa.txt">html-01-parvata-stranitsa.txt</a>.</p>
+  </section>
+
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.govoreshtUrok({ kutiya: "plejar", redaktor: "r-govoresht", nachalen: "", sceni: [{"govor": "Здравейте! Днес ще напишем първата си уеб страница. Отляво е кодът, отдясно браузърът показва резултата. Започваме с главно заглавие. Пишем отварящ таг h1.", "izgovor": "Здравейте! Днес ще напишем първата си уеб страница. Отляво е кодът, отдясно браузърът показва резултата. Започваме с главно заглавие. Пишем отварящ таг ейч едно.", "kod": "<h1>"}, {"govor": "След отварящия таг пишем текста на заглавието.", "izgovor": "След отварящия таг пишем текста на заглавието.", "kod": "<h1>Котката Мица"}, {"govor": "Сега затваряме заглавието. Затварящият таг е същият, но има наклонена черта пред името. Вдясно вече има голямо удебелено заглавие.", "izgovor": "Сега затваряме заглавието. Затварящият таг е същият, но има наклонена черта пред името. Вдясно вече има голямо удебелено заглавие.", "kod": "<h1>Котката Мица<\/h1>"}, {"govor": "Под заглавието ще напишем абзац. Абзацът се пише с таг p. Той идва от думата параграф.", "izgovor": "Под заглавието ще напишем абзац. Абзацът се пише с таг пи. Той идва от думата параграф.", "kod": "<h1>Котката Мица<\/h1>\n<p>Мица е на три години и обича да спи на прозореца.<\/p>"}, {"govor": "Искаме думата спи да изпъква. Слагаме я в таг strong. Така казваме на браузъра, че думата е важна, и той я удебелява.", "izgovor": "Искаме думата спи да изпъква. Слагаме я в таг стронг. Така казваме на браузъра, че думата е важна, и той я удебелява.", "kod": "<h1>Котката Мица<\/h1>\n<p>Мица е на три години и обича да <strong>спи<\/strong> на прозореца.<\/p>"}, {"govor": "Добавяме подзаглавие с таг h2. То е по-малко от главното заглавие.", "izgovor": "Добавяме подзаглавие с таг ейч две. То е по-малко от главното заглавие.", "kod": "<h1>Котката Мица<\/h1>\n<p>Мица е на три години и обича да <strong>спи<\/strong> на прозореца.<\/p>\n<h2>Любима храна<\/h2>"}, {"govor": "И още един абзац. Забележете, че всеки абзац започва на нов ред. Браузърът сам оставя място между абзаците.", "izgovor": "И още един абзац. Забележете, че всеки абзац започва на нов ред. Браузърът сам оставя място между абзаците.", "kod": "<h1>Котката Мица<\/h1>\n<p>Мица е на три години и обича да <strong>спи<\/strong> на прозореца.<\/p>\n<h2>Любима храна<\/h2>\n<p>Най-много обича риба и малко мляко.<\/p>"}, {"govor": "Сега е ваш ред. Натиснете в кода и сменете h2 с h4 на двете места. Вижте как подзаглавието става по-малко.", "izgovor": "Сега е ваш ред. Натиснете в кода и сменете ейч две с ейч четири на двете места. Вижте как подзаглавието става по-малко.", "kod": "<h1>Котката Мица<\/h1>\n<p>Мица е на три години и обича да <strong>спи<\/strong> на прозореца.<\/p>\n<h2>Любима храна<\/h2>\n<p>Най-много обича риба и малко мляко.<\/p>"}] });
+  Uchebnik.predizvikatelstvo({
+    redaktor: "r-zadacha", spisak: "stapki", proveri: "proveri", podskazka: "podskazka",
+    otnachalo: "otnachalo", saobshtenie: "saobshtenie", kraj: "Браво! Страницата за книгата е готова. Покажете я на съученик.",
+    proverki: [
+function (d, kod, w, P) {
+var h1 = d.querySelector("h1");
+if (!h1) return "Не виждам заглавие h1. Проверете дали сте написали <h1>.";
+if (!/<\/h1>/i.test(kod)) return "Заглавието не е затворено. Добавете <\/h1> след името.";
+if (P.tekst(h1).length < 2) return "Заглавието е празно. Напишете името на книгата.";
+return true;
+},
+function (d, kod, w, P) {
+var p = d.querySelector("h1 ~ p");
+if (!p) return "Не виждам абзац под заглавието. Използвайте таг p.";
+if (P.tekst(p).length < 3) return "Абзацът е празен. Напишете името на автора.";
+return true;
+},
+function (d, kod, w, P) {
+var h2 = d.querySelector("h2");
+if (!h2) return "Не виждам подзаглавие h2.";
+if (P.tekst(h2).length < 3) return "Подзаглавието е празно.";
+return true;
+},
+function (d, kod, w, P) {
+var p = d.querySelector("h2 ~ p");
+if (!p) return "Добавете абзац след подзаглавието h2.";
+var izr = P.tekst(p).split(/[.!?]+/).filter(function (s) { return s.trim().length > 1; });
+if (izr.length < 2) return "Напишете поне две изречения. Всяко завършва с точка.";
+return true;
+},
+function (d, kod, w, P) {
+var s = d.querySelector("h2 ~ p strong");
+if (!s && d.querySelector("p b")) return "Тагът b също удебелява, но тук използвайте strong, защото думата е важна.";
+if (!s) return "Не виждам удебелена дума в абзаца след h2. Сложете я в таг strong.";
+if (P.tekst(s).length < 2) return "Тагът strong е празен. Сложете дума вътре.";
+return true;
+}
+    ]
+  });
+  Uchebnik.proverkaNaZnaniyata("test");
+});
+</script>
+</body>
+</html>

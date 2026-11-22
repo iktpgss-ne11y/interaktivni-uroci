@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Викторина с бутони</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 5. JavaScript в страницата · Проект</p>
+  <h1>Викторина с бутони</h1>
+  <p class="podzaglavie">Направете малка викторина: въпрос, няколко бутона с отговори и съобщение дали отговорът е верен.</p>
+</header>
+
+<main>
+  <section class="karta" id="zadanie">
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="zadanie">▶ Чети заданието</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Задание</h2>
+    <p>Изберете тема, която харесвате: история, спорт, музика или нещо от училище.</p>
+    <p>Всеки бутон с отговор показва съобщение. Верният отговор показва зелено съобщение, грешният показва червено.</p>
+    <p>Използвайте CSS класове за цветовете, а JavaScript само да ги слага.</p>
+    <h3>Задължителни изисквания</h3>
+    <ul class="iziskvaniya" id="iziskvaniya">
+      <li>Въпрос и поне три бутона с отговори.<p class="obratna"></p></li>
+      <li>CSS класове за верен и грешен отговор с различни цветове.<p class="obratna"></p></li>
+      <li>Всеки бутон показва съобщение, когато го натиснете.<p class="obratna"></p></li>
+      <li>Верният и грешният отговор показват съобщение в различен цвят.<p class="obratna"></p></li>
+      <li>Цветът се сменя със <code data-izgovor="клас лист">classList</code>, а не със <code data-izgovor="стайл">style</code>.<p class="obratna"></p></li>
+    </ul>
+    <h3>Идеи, ако искате повече</h3>
+    <ul>
+      <li>Добавете брояч на точки, който расте при верен отговор.</li>
+      <li>Направете няколко въпроса, които се показват един след друг.</li>
+      <li>Забранете бутоните след верен отговор със свойството <code data-izgovor="дизейбълд">disabled</code>.</li>
+    </ul>
+  </section>
+  <section class="karta">
+    <div class="redaktor" id="r-proekt">
+      <div>
+        <div class="eticheta">Вашият проект</div>
+        <textarea spellcheck="false" aria-label="Вашият проект">&lt;style&gt;
+
+&lt;/style&gt;
+&lt;h1&gt;Викторина&lt;/h1&gt;
+&lt;p&gt;Коя е столицата на България?&lt;/p&gt;
+&lt;button id=&quot;o1&quot;&gt;Пловдив&lt;/button&gt;
+&lt;button id=&quot;o2&quot;&gt;София&lt;/button&gt;
+&lt;button id=&quot;o3&quot;&gt;Варна&lt;/button&gt;
+&lt;p id=&quot;saobshtenie&quot;&gt;&lt;/p&gt;
+&lt;script&gt;
+
+&lt;/script&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери изискванията</button>
+      <button type="button" class="vtori" data-nulirai="r-proekt">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+    <p>Кодът се пази в този браузър. За да го предадете, копирайте го в нов файл index.html или го качете в GitHub.</p>
+  </section>
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.proekt({ redaktor: "r-proekt", spisak: "iziskvaniya", proveri: "proveri", saobshtenie: "saobshtenie",
+    proverki: [
+function (d, kod, w, P) {
+if (d.querySelectorAll("button").length < 3) return "Нужни са поне три бутона."; return true;
+},
+function (d, kod, w, P) {
+var m = kod.match(/\.([a-zA-Z-]+)\s*\{[^}]*color\s*:/g); if (!m || m.length < 2) return "Нужни са два CSS класа с color."; return true;
+},
+function (d, kod, w, P) {
+var s = d.getElementById("saobshtenie"); if (!s) return "Не изтривайте абзаца с id saobshtenie."; var b = d.querySelectorAll("button"); for (var i = 0; i < b.length; i++) { s.textContent = ""; b[i].click(); if (!P.tekst(s)) return "Бутонът " + P.tekst(b[i]) + " не показва съобщение."; } return true;
+},
+function (d, kod, w, P) {
+var s = d.getElementById("saobshtenie"); var b = d.querySelectorAll("button"); var c = new Set(); for (var i = 0; i < b.length; i++) { b[i].click(); c.add(P.stil(s, "color")); } if (c.size < 2) return "Съобщенията са в един и същ цвят. Слагайте различни класове."; return true;
+},
+function (d, kod, w, P) {
+if (!/classList\.(add|toggle|remove)/.test(kod)) return "Използвайте classList.add или classList.remove."; if (/\.style\.color/.test(kod)) return "Не сменяйте style.color. Използвайте класове."; return true;
+}
+    ] });
+});
+</script>
+</body>
+</html>

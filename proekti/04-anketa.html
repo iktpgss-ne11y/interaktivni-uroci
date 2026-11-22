@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анкета за класа</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 4. Формуляри · Проект</p>
+  <h1>Анкета за класа</h1>
+  <p class="podzaglavie">Направете анкета, с която класът избира къде да отиде на екскурзия.</p>
+</header>
+
+<main>
+  <section class="karta" id="zadanie">
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="zadanie">▶ Чети заданието</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Задание</h2>
+    <p>Помислете какво искате да разберете от съучениците си. Кои въпроси са с един отговор и кои с много?</p>
+    <p>Всяко поле трябва да има етикет. Анкетата трябва да е удобна и на телефон.</p>
+    <h3>Задължителни изисквания</h3>
+    <ul class="iziskvaniya" id="iziskvaniya">
+      <li>Задължително поле за име.<p class="obratna"></p></li>
+      <li>Поне три радио бутона в една група.<p class="obratna"></p></li>
+      <li>Поне две отметки.<p class="obratna"></p></li>
+      <li>Падащ списък с поне два избора.<p class="obratna"></p></li>
+      <li>Голямо поле за текст.<p class="obratna"></p></li>
+      <li>Всяко поле има етикет.<p class="obratna"></p></li>
+      <li>Бутон за изпращане.<p class="obratna"></p></li>
+    </ul>
+    <h3>Идеи, ако искате повече</h3>
+    <ul>
+      <li>Оформете анкетата с CSS: етикетите на нов ред, заоблени полета и цветен бутон.</li>
+      <li>Групирайте въпросите с <code data-izgovor="филдсет">fieldset</code> и заглавие <code data-izgovor="леджънд">legend</code>.</li>
+      <li>Създайте истинска анкета с Google Forms и сравнете какво прави тя вместо вас.</li>
+    </ul>
+  </section>
+  <section class="karta">
+    <div class="redaktor" id="r-proekt">
+      <div>
+        <div class="eticheta">Вашият проект</div>
+        <textarea spellcheck="false" aria-label="Вашият проект">&lt;style&gt;
+
+&lt;/style&gt;
+&lt;h1&gt;Анкета: Къде да отидем?&lt;/h1&gt;
+&lt;form&gt;
+
+&lt;/form&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери изискванията</button>
+      <button type="button" class="vtori" data-nulirai="r-proekt">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+    <p>Кодът се пази в този браузър. За да го предадете, копирайте го в нов файл index.html или го качете в GitHub.</p>
+  </section>
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.proekt({ redaktor: "r-proekt", spisak: "iziskvaniya", proveri: "proveri", saobshtenie: "saobshtenie",
+    proverki: [
+function (d, kod, w, P) {
+var i = d.querySelector("form input[type='text']"); if (!i || !i.required) return "Нужно е задължително текстово поле."; return true;
+},
+function (d, kod, w, P) {
+var r = d.querySelectorAll("input[type='radio']"); if (r.length < 3) return "Нужни са поне три радио бутона."; var n = r[0].name; if (!n || Array.prototype.some.call(r, function (x) { return x.name !== n; })) return "Радио бутоните трябва да са с еднакво name."; return true;
+},
+function (d, kod, w, P) {
+if (d.querySelectorAll("input[type='checkbox']").length < 2) return "Нужни са поне две отметки."; return true;
+},
+function (d, kod, w, P) {
+var s = d.querySelector("select"); if (!s || s.options.length < 2) return "Нужен е select с поне два option."; return true;
+},
+function (d, kod, w, P) {
+if (!d.querySelector("textarea")) return "Нужна е textarea."; return true;
+},
+function (d, kod, w, P) {
+var p = d.querySelectorAll("input:not([type='submit']), select, textarea"); for (var i = 0; i < p.length; i++) { var e = p[i]; if (!e.closest("label") && !(e.id && d.querySelector("label[for='" + e.id + "']"))) return "Поле без етикет: " + (e.name || e.tagName.toLowerCase()) + "."; } return true;
+},
+function (d, kod, w, P) {
+if (!d.querySelector("form button[type='submit'], form input[type='submit'], form button:not([type])")) return "Нужен е бутон за изпращане."; return true;
+}
+    ] });
+});
+</script>
+</body>
+</html>

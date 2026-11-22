@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Текст и шрифтове</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 2. CSS основи · Урок 8</p>
+  <h1>Текст и шрифтове</h1>
+  <p class="podzaglavie">Ще научите как се сменят шрифтът, размерът, дебелината и подравняването на текста.</p>
+  <p class="podzaglavie">Време: около 30 минути.</p>
+</header>
+
+<main>
+  <section class="karta" id="govoresht">
+    <span class="etiket">1. Видеообяснение</span>
+    <h2>Оформяме стихотворение</h2>
+    <video class="video-urok" controls preload="metadata" src="../video/08-tekst-i-shriftove.mp4"></video>
+    <p>Видеото има глас и субтитри. Под него е същото обяснение, но интерактивно: можете да спрете и да промените кода сами.</p>
+    <p>Натиснете Пусни. Кодът ще се пише сам, а гласът ще обяснява. Можете да спрете по всяко време, да промените кода и да видите какво става.</p>
+    <div class="plejar" id="plejar">
+    <div class="redaktor" id="r-govoresht" data-bez-pamet>
+      <div>
+        <div class="eticheta">Код</div>
+        <textarea spellcheck="false" aria-label="Код">&lt;style&gt;
+&lt;/style&gt;
+&lt;h1&gt;Есен&lt;/h1&gt;
+&lt;p&gt;Листата шумолят и падат.&lt;/p&gt;
+&lt;p class=&quot;avtor&quot;&gt;Ученик от 12 клас&lt;/p&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+      <div class="subtitri" aria-live="polite"></div>
+      <div class="upravlenie">
+        <button type="button" class="nazad vtori" aria-label="Предишна сцена">⏮ Назад</button>
+        <button type="button" class="pusni">▶ Пусни</button>
+        <button type="button" class="napred vtori" aria-label="Следваща сцена">Напред ⏭</button>
+        <label>Скорост на гласа
+          <select class="izbor-skorost">
+            <option value="0.8">бавно</option>
+            <option value="0.95">нормално</option>
+            <option value="1.1">бързо</option>
+          </select>
+        </label>
+        <span class="nomer-scena"></span>
+      </div>
+      <div class="lenta-kutiya"><div class="lenta"></div></div>
+    </div>
+    <p>Гласът работи най-добре в Microsoft Edge, където има български глас. В другите браузъри урокът върви със субтитри.</p>
+  </section>
+  <section class="karta" id="obyasnenie">
+    <span class="etiket">2. Обяснение</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="obyasnenie">▶ Чети на глас</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Свойства за текст</h2>
+    <p><code data-izgovor="фонт фемили">font-family</code> избира шрифта. Пишат се няколко шрифта през запетая, а накрая общ вид, например <code data-izgovor="санс сериф">sans-serif</code>.</p>
+    <p><code data-izgovor="фонт сайз">font-size</code> задава размера, например <code data-izgovor="шестнадесет пиксела">16px</code>. Обичайният размер на текста в браузъра е шестнадесет пиксела.</p>
+    <p><code data-izgovor="фонт уейт">font-weight</code> задава дебелината: <code data-izgovor="нормал">normal</code> или <code data-izgovor="болд">bold</code>. <code data-izgovor="фонт стайл италик">font-style: italic</code> прави текста наклонен.</p>
+    <p><code data-izgovor="текст алайн">text-align</code> подравнява текста: <code data-izgovor="ляво">left</code>, <code data-izgovor="център">center</code>, <code data-izgovor="дясно">right</code> или <code data-izgovor="двустранно">justify</code>.</p>
+    <p><code data-izgovor="лайн хайт">line-height</code> задава разстоянието между редовете. Стойност около едно цяло и пет десети прави текста по-лесен за четене.</p>
+    <pre class="primer"><code>body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+h1 { text-align: center; }</code></pre>
+    <p>Не използвайте много шрифтове на една страница. Два шрифта са напълно достатъчни: един за заглавията и един за текста.</p>
+  </section>
+  <section class="karta" id="predizvikatelstvo">
+    <span class="etiket">3. Предизвикателство</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="predizvikatelstvo">▶ Чети задачата</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Покана за бал</h2>
+    <p>Оформете текста на поканата за абитуриентския бал. Изпълнявайте стъпките една по една. След всяка стъпка натиснете Провери.</p>
+    <ol class="stapki" id="stapki">
+      <li>Сменете шрифта на цялата страница на шрифт с чертички, например <code data-izgovor="джорджия, сериф">Georgia, serif</code>.
+        <p class="podskazka">Подсказка: правилото е за <code data-izgovor="боди">body</code>: <code data-izgovor="фонт фемили джорджия сериф">font-family: Georgia, serif;</code>.</p></li>
+      <li>Центрирайте заглавието и го направете четиридесет пиксела.
+        <p class="podskazka">Подсказка: <code data-izgovor="ейч едно, текст алайн център, фонт сайз 40 пиксела">h1 { text-align: center; font-size: 40px; }</code>.</p></li>
+      <li>Направете датата удебелена и центрирана. Тя има клас <code data-izgovor="дата">data</code>.
+        <p class="podskazka">Подсказка: <code data-izgovor="точка дата, фонт уейт болд, текст алайн център">.data { font-weight: bold; text-align: center; }</code>.</p></li>
+      <li>Направете подписа наклонен и подравнен вдясно.
+        <p class="podskazka">Подсказка: клас <code data-izgovor="подпис">podpis</code>, свойства <code data-izgovor="фонт стайл">font-style</code> и <code data-izgovor="текст алайн">text-align</code>.</p></li>
+      <li>Задайте разстояние между редовете поне едно цяло и четири на цялата страница.
+        <p class="podskazka">Подсказка: <code data-izgovor="лайн хайт едно цяло и шест">line-height: 1.6;</code> в правилото за <code data-izgovor="боди">body</code>.</p></li>
+    </ol>
+    <div class="redaktor" id="r-zadacha">
+      <div>
+        <div class="eticheta">Вашият код</div>
+        <textarea spellcheck="false" aria-label="Вашият код">&lt;style&gt;
+
+&lt;/style&gt;
+&lt;h1&gt;Покана&lt;/h1&gt;
+&lt;p class=&quot;data&quot;&gt;25 май, 19 часа&lt;/p&gt;
+&lt;p&gt;Каним ви на нашия абитуриентски бал. Ще има музика, танци и много спомени.&lt;/p&gt;
+&lt;p class=&quot;podpis&quot;&gt;Випуск 2027&lt;/p&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери</button>
+      <button type="button" class="vtori" id="podskazka">Покажи подсказка</button>
+      <button type="button" class="vtori" id="otnachalo">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="test">
+    <span class="etiket">4. Проверка на знанията</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="test">▶ Чети въпросите</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Бързи въпроси</h2>
+    <div class="vapros" data-veren="b" data-obyasnenie="Подравняването на текст е с text-align.">
+      <fieldset>
+        <legend>1. Кое свойство центрира текста?</legend>
+        <label><input type="radio" name="v1" value="a"> <code data-izgovor="фонт алайн център">font-align: center</code></label>
+        <label><input type="radio" name="v1" value="b"> <code data-izgovor="текст алайн център">text-align: center</code></label>
+        <label><input type="radio" name="v1" value="c"> <code data-izgovor="алайн център">align: center</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Списъкът е резервен план, ако на компютъра няма първия шрифт.">
+      <fieldset>
+        <legend>2. Защо пишем няколко шрифта в <code data-izgovor="фонт фемили">font-family</code>?</legend>
+        <label><input type="radio" name="v2" value="a"> За да се смесят.</label>
+        <label><input type="radio" name="v2" value="b"> Ако първият липсва, браузърът взема следващия.</label>
+        <label><input type="radio" name="v2" value="c"> За да е по-голям текстът.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Наклонът е font-style, а дебелината е font-weight.">
+      <fieldset>
+        <legend>3. Как се прави наклонен текст?</legend>
+        <label><input type="radio" name="v3" value="a"> <code data-izgovor="фонт уейт италик">font-weight: italic</code></label>
+        <label><input type="radio" name="v3" value="b"> <code data-izgovor="фонт стайл италик">font-style: italic</code></label>
+        <label><input type="radio" name="v3" value="c"> <code data-izgovor="текст стайл италик">text-style: italic</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Около едно цяло и пет е удобно за четене.">
+      <fieldset>
+        <legend>4. Каква стойност на <code data-izgovor="лайн хайт">line-height</code> прави текста лесен за четене?</legend>
+        <label><input type="radio" name="v4" value="a"> Около 0,5.</label>
+        <label><input type="radio" name="v4" value="b"> Около 1,5.</label>
+        <label><input type="radio" name="v4" value="c"> Около 5.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="butoni"><button type="button" class="proveri-testa">Провери отговорите</button></div>
+    <p class="rezultat" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="sledvashto">
+    <span class="etiket">5. Самостоятелна подготовка</span>
+    <h2>Упражнявайте се, докато стане лесно</h2>
+    <p><a href="../trenirovki/02-css-osnovi.html">Тренировка: CSS основи</a></p>
+    <p>Текст на урока за приложение за четене на глас: <a href="../tekst-za-chetene/css-08-tekst-i-shriftove.txt">css-08-tekst-i-shriftove.txt</a>.</p>
+  </section>
+
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.govoreshtUrok({ kutiya: "plejar", redaktor: "r-govoresht", nachalen: "<style>\n<\/style>\n<h1>Есен<\/h1>\n<p>Листата шумолят и падат.<\/p>\n<p class=\"avtor\">Ученик от 12 клас<\/p>", sceni: [{"govor": "Ще оформим кратко стихотворение. Първо сменяме шрифта на цялата страница със свойството font-family.", "izgovor": "Ще оформим кратко стихотворение. Първо сменяме шрифта на цялата страница със свойството фонт фемили.", "kod": "<style>\nbody {\n  font-family: Georgia, serif;\n}\n<\/style>\n<h1>Есен<\/h1>\n<p>Листата шумолят и падат.<\/p>\n<p class=\"avtor\">Ученик от 12 клас<\/p>"}, {"govor": "Пишем няколко шрифта, разделени със запетая. Ако компютърът няма първия, взема следващия. Накрая слагаме общ вид: serif е шрифт с чертички, sans-serif е без чертички.", "izgovor": "Пишем няколко шрифта, разделени със запетая. Ако компютърът няма първия, взема следващия. Накрая слагаме общ вид: сериф е шрифт с чертички, санс сериф е без чертички.", "kod": "<style>\nbody {\n  font-family: Georgia, serif;\n}\n<\/style>\n<h1>Есен<\/h1>\n<p>Листата шумолят и падат.<\/p>\n<p class=\"avtor\">Ученик от 12 клас<\/p>"}, {"govor": "Размерът се сменя с font-size. Ще направим абзаците по-големи: двадесет пиксела.", "izgovor": "Размерът се сменя с фонт сайз. Ще направим абзаците по-големи: двадесет пиксела.", "kod": "<style>\nbody {\n  font-family: Georgia, serif;\n}\np {\n  font-size: 20px;\n}\n<\/style>\n<h1>Есен<\/h1>\n<p>Листата шумолят и падат.<\/p>\n<p class=\"avtor\">Ученик от 12 клас<\/p>"}, {"govor": "Центрираме заглавието с text-align: center.", "izgovor": "Центрираме заглавието с текст алайн център.", "kod": "<style>\nbody {\n  font-family: Georgia, serif;\n}\np {\n  font-size: 20px;\n}\nh1 {\n  text-align: center;\n}\n<\/style>\n<h1>Есен<\/h1>\n<p>Листата шумолят и падат.<\/p>\n<p class=\"avtor\">Ученик от 12 клас<\/p>"}, {"govor": "Името на автора ще е наклонено и подравнено вдясно. Използваме font-style: italic и text-align: right.", "izgovor": "Името на автора ще е наклонено и подравнено вдясно. Използваме фонт стайл италик и текст алайн райт.", "kod": "<style>\nbody {\n  font-family: Georgia, serif;\n}\np {\n  font-size: 20px;\n}\nh1 {\n  text-align: center;\n}\n.avtor {\n  font-style: italic;\n  text-align: right;\n}\n<\/style>\n<h1>Есен<\/h1>\n<p>Листата шумолят и падат.<\/p>\n<p class=\"avtor\">Ученик от 12 клас<\/p>"}, {"govor": "Накрая увеличаваме разстоянието между редовете с line-height. Така дългият текст се чете по-лесно.", "izgovor": "Накрая увеличаваме разстоянието между редовете с лайн хайт. Така дългият текст се чете по-лесно.", "kod": "<style>\nbody {\n  font-family: Georgia, serif;\n  line-height: 1.6;\n}\np {\n  font-size: 20px;\n}\nh1 {\n  text-align: center;\n}\n.avtor {\n  font-style: italic;\n  text-align: right;\n}\n<\/style>\n<h1>Есен<\/h1>\n<p>Листата шумолят и падат.<\/p>\n<p class=\"avtor\">Ученик от 12 клас<\/p>"}] });
+  Uchebnik.predizvikatelstvo({
+    redaktor: "r-zadacha", spisak: "stapki", proveri: "proveri", podskazka: "podskazka",
+    otnachalo: "otnachalo", saobshtenie: "saobshtenie", kraj: "Поканата е готова! Елегантна и лесна за четене.",
+    proverki: [
+function (d, kod, w, P) {
+var f = P.stil(d.body, "font-family").toLowerCase();
+if (!/(^|,\s*)serif\s*$/.test(f)) return "Шрифтът на body трябва да завършва с общия вид serif.";
+return true;
+},
+function (d, kod, w, P) {
+var h = d.querySelector("h1");
+if (P.stil(h, "text-align") !== "center") return "Заглавието не е центрирано.";
+if (P.px(P.stil(h, "font-size")) !== 40) return "Размерът на заглавието трябва да е 40px. Сега е " + P.stil(h, "font-size") + ".";
+return true;
+},
+function (d, kod, w, P) {
+var e = d.querySelector(".data");
+if (Number(P.stil(e, "font-weight")) < 600) return "Датата не е удебелена.";
+if (P.stil(e, "text-align") !== "center") return "Датата не е центрирана.";
+return true;
+},
+function (d, kod, w, P) {
+var e = d.querySelector(".podpis");
+if (P.stil(e, "font-style") !== "italic") return "Подписът не е наклонен.";
+if (P.stil(e, "text-align") !== "right") return "Подписът не е вдясно.";
+return true;
+},
+function (d, kod, w, P) {
+var p = d.querySelectorAll("p")[1];
+var lh = P.px(P.stil(p, "line-height")), fs = P.px(P.stil(p, "font-size"));
+if (!lh || lh / fs < 1.39) return "Разстоянието между редовете е твърде малко. Задайте line-height поне 1.4.";
+return true;
+}
+    ]
+  });
+  Uchebnik.proverkaNaZnaniyata("test");
+});
+</script>
+</body>
+</html>

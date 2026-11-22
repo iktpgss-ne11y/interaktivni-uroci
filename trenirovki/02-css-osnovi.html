@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS основи</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 2. CSS основи · Тренировка</p>
+  <h1>CSS основи</h1>
+  <p class="podzaglavie">Цветове, селектори, текст и блоков модел. Отговорете вярно пет пъти поред.</p>
+</header>
+
+<main>
+  <section class="karta" id="trenirovka">
+    <span class="etiket">Цел: 5 верни отговора поред</span>
+    <p class="broyach"></p>
+    <div class="tochki" aria-hidden="true"></div>
+    <p class="tekst-vapros" aria-live="polite"></p>
+    <div class="pole-otgovor"></div>
+    <p class="obratna-trenirovka saobshtenie" role="status" aria-live="polite"></p>
+    <div class="butoni">
+      <button type="button" class="proveri-otgovor">Провери</button>
+      <button type="button" class="sledvasht" hidden>Следващ въпрос</button>
+      <button type="button" class="vtori cheti-vaprosa">▶ Чети въпроса</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+    </div>
+  </section>
+  <section class="karta">
+    <h2>Как работи тренировката</h2>
+    <p>Въпросите идват в случаен ред. При грешка броячът започва отначало, а под въпроса има обяснение. Това не е наказание, а начин да видите кое още не е сигурно.</p>
+    <p>Ако се затруднявате, върнете се към урока: <a href="../css/06-tsvetove.html">Урок 6</a> <a href="../css/07-klasove-i-id.html">Урок 7</a> <a href="../css/08-tekst-i-shriftove.html">Урок 8</a> <a href="../css/09-blokov-model.html">Урок 9</a></p>
+  </section>
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var vaprosi = [{"vid": "izbor", "tekst": "Кое свойство сменя цвета на текста?", "izgovor": "Кое свойство сменя цвета на текста?", "obyasnenie": "Цветът на текста е color.", "otgovori": ["color", "background-color", "font-color", "text-color"], "veren": 0}, {"vid": "izbor", "tekst": "Кой селектор хваща всички елементи с клас info?", "izgovor": "Кой селектор хваща всички елементи с клас инфо?", "obyasnenie": "Класът се пише с точка.", "otgovori": [".info", "#info", "info", "*info"], "veren": 0}, {"vid": "izbor", "tekst": "Кой селектор хваща елемента с id=\"menu\"?", "izgovor": "Кой селектор хваща елемента с ай ди меню?", "obyasnenie": "id се пише с диез.", "otgovori": ["#menu", ".menu", "menu", "id.menu"], "veren": 0}, {"vid": "vpishi", "tekst": "Кое свойство задава размера на шрифта? Напишете само името.", "izgovor": "Кое свойство задава размера на шрифта? Напишете само името.", "obyasnenie": "Размерът е font-size.", "verni": ["font-size"]}, {"vid": "vpishi", "tekst": "Кое свойство задава вътрешното отстояние? Напишете само името.", "izgovor": "Кое свойство задава вътрешното отстояние? Напишете само името.", "obyasnenie": "Вътрешното отстояние е padding.", "verni": ["padding"]}, {"vid": "izbor", "tekst": "Елемент има правило по клас, по което е зелен, и правило по id, по което е син. Какъв е?", "izgovor": "Елемент има правило по клас, по което е зелен, и правило по id, по което е син. Какъв е?", "obyasnenie": "Правилото по id е по-точно и печели.", "otgovori": ["Син.", "Зелен.", "Черен."], "veren": 0}, {"vid": "izbor", "tekst": "Какво липсва в p { color red; }?", "izgovor": "Какво липсва в пи, колър ред?", "obyasnenie": "Между свойството и стойността се пише двоеточие.", "otgovori": ["Двоеточие.", "Точка и запетая.", "Кавички."], "veren": 0}, {"vid": "izbor", "tekst": "Кой вид рамка е пунктирана?", "izgovor": "Кой вид рамка е пунктирана?", "obyasnenie": "dashed е пунктир, dotted е точки, solid е плътна линия.", "otgovori": ["dashed", "solid", "double"], "veren": 0}, {"vid": "izbor", "tekst": "Подредете слоевете на кутията отвътре навън.", "izgovor": "Подредете слоевете на кутията отвътре навън.", "obyasnenie": "Отвътре навън: съдържание, вътрешно отстояние, рамка, външно отстояние.", "otgovori": ["съдържание, padding, border, margin", "съдържание, margin, border, padding", "border, padding, margin, съдържание"], "veren": 0}, {"vid": "kod", "tekst": "Направете всички заглавия h2 сини.", "izgovor": "Направете всички заглавия h2 сини.", "obyasnenie": "h2 { color: blue; }", "nachalen": "<style>\n\n<\/style>\n<h2>Първо<\/h2>\n<h2>Второ<\/h2>"}, {"vid": "kod", "tekst": "Поправете CSS кода, така че абзацът с клас note да има жълт фон.", "izgovor": "Поправете CSS кода, така че абзацът с клас note да има жълт фон.", "obyasnenie": "Липсваше точката пред името на класа.", "nachalen": "<style>\nnote { background-color: yellow; }\n<\/style>\n<p class=\"note\">Внимание!<\/p>"}, {"vid": "kod", "tekst": "Дайте на кутията вътрешно отстояние 10px и плътна черна рамка 1px.", "izgovor": "Дайте на кутията вътрешно отстояние 10px и плътна черна рамка 1px.", "obyasnenie": "padding: 10px; border: 1px solid black;", "nachalen": "<style>\n.kutiya {\n\n}\n<\/style>\n<div class=\"kutiya\">Здравей<\/div>"}, {"vid": "kod", "tekst": "Центрирайте текста на заглавието h1.", "izgovor": "Центрирайте текста на заглавието h1.", "obyasnenie": "h1 { text-align: center; }", "nachalen": "<style>\n\n<\/style>\n<h1>Здравейте<\/h1>"}];
+  vaprosi[9].proverka = function (d, kod, w, P) {
+var h = d.querySelectorAll("h2");
+for (var i = 0; i < h.length; i++) { var m = P.stil(h[i], "color").match(/\d+/g).map(Number); if (!(m[2] > m[0] && m[2] > m[1])) return "Заглавие " + (i + 1) + " не е синьо."; }
+return true;
+};
+  vaprosi[10].proverka = function (d, kod, w, P) {
+if (!P.imaCvyat(P.stil(d.querySelector(".note"), "background-color"))) return "Абзацът още няма фон. Какво липсва пред note?";
+return true;
+};
+  vaprosi[11].proverka = function (d, kod, w, P) {
+var e = d.querySelector(".kutiya");
+if (P.px(P.stil(e, "padding-top")) !== 10) return "padding трябва да е 10px.";
+if (P.stil(e, "border-top-style") !== "solid" || P.px(P.stil(e, "border-top-width")) !== 1) return "Рамката трябва да е 1px solid.";
+return true;
+};
+  vaprosi[12].proverka = function (d, kod, w, P) {
+if (P.stil(d.querySelector("h1"), "text-align") !== "center") return "Заглавието не е центрирано.";
+return true;
+};
+  Uchebnik.trenirovka({ kutiya: "trenirovka", poRed: 5, vaprosi: vaprosi });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox: редове и колони</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 3. Оформление на страница · Урок 12</p>
+  <h1>Flexbox: редове и колони</h1>
+  <p class="podzaglavie">Ще научите как се подреждат карти една до друга, как се разпределя мястото и как се пренасят на нов ред.</p>
+  <p class="podzaglavie">Време: около 35 минути.</p>
+</header>
+
+<main>
+  <section class="karta" id="govoresht">
+    <span class="etiket">1. Видеообяснение</span>
+    <h2>Карти в ред</h2>
+    <video class="video-urok" controls preload="metadata" src="../video/12-flexbox.mp4"></video>
+    <p>Видеото има глас и субтитри. Под него е същото обяснение, но интерактивно: можете да спрете и да промените кода сами.</p>
+    <p>Натиснете Пусни. Кодът ще се пише сам, а гласът ще обяснява. Можете да спрете по всяко време, да промените кода и да видите какво става.</p>
+    <div class="plejar" id="plejar">
+    <div class="redaktor" id="r-govoresht" data-bez-pamet>
+      <div>
+        <div class="eticheta">Код</div>
+        <textarea spellcheck="false" aria-label="Код">&lt;style&gt;
+.karta { background-color: #e8f5e9; padding: 16px; border-radius: 8px; width: 120px; }
+&lt;/style&gt;
+&lt;div class=&quot;karti&quot;&gt;
+  &lt;div class=&quot;karta&quot;&gt;Пролет&lt;/div&gt;
+  &lt;div class=&quot;karta&quot;&gt;Лято&lt;/div&gt;
+  &lt;div class=&quot;karta&quot;&gt;Есен&lt;/div&gt;
+  &lt;div class=&quot;karta&quot;&gt;Зима&lt;/div&gt;
+&lt;/div&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+      <div class="subtitri" aria-live="polite"></div>
+      <div class="upravlenie">
+        <button type="button" class="nazad vtori" aria-label="Предишна сцена">⏮ Назад</button>
+        <button type="button" class="pusni">▶ Пусни</button>
+        <button type="button" class="napred vtori" aria-label="Следваща сцена">Напред ⏭</button>
+        <label>Скорост на гласа
+          <select class="izbor-skorost">
+            <option value="0.8">бавно</option>
+            <option value="0.95">нормално</option>
+            <option value="1.1">бързо</option>
+          </select>
+        </label>
+        <span class="nomer-scena"></span>
+      </div>
+      <div class="lenta-kutiya"><div class="lenta"></div></div>
+    </div>
+    <p>Гласът работи най-добре в Microsoft Edge, където има български глас. В другите браузъри урокът върви със субтитри.</p>
+  </section>
+  <section class="karta" id="obyasnenie">
+    <span class="etiket">2. Обяснение</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="obyasnenie">▶ Чети на глас</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Контейнер и деца</h2>
+    <p>Flexbox работи с контейнер и деца. Свойствата се пишат на контейнера, а подреждат децата му.</p>
+    <p><code data-izgovor="дисплей флекс">display: flex</code> включва подреждането. Децата застават в ред.</p>
+    <p><code data-izgovor="гап">gap</code> задава разстоянието между децата.</p>
+    <p><code data-izgovor="флекс рап рап">flex-wrap: wrap</code> позволява децата да минат на нов ред, когато няма място.</p>
+    <p><code data-izgovor="джъстифай контент">justify-content</code> разпределя децата по главната посока. Стойности: <code data-izgovor="флекс старт">flex-start</code> в началото, <code data-izgovor="център">center</code> в средата, <code data-izgovor="спейс битуийн">space-between</code> с равно място между тях.</p>
+    <p><code data-izgovor="алайн айтъмс">align-items</code> ги подравнява по другата посока, например <code data-izgovor="център">center</code> по вертикала.</p>
+    <p><code data-izgovor="флекс дирекшън">flex-direction</code> сменя посоката: <code data-izgovor="роу">row</code> е ред, <code data-izgovor="колъм">column</code> е колона.</p>
+    <pre class="primer"><code>.karti {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}</code></pre>
+    <p>Детето може да има <code data-izgovor="флекс едно">flex: 1</code>. Тогава то заема цялото свободно място. Ако три деца имат <code data-izgovor="флекс едно">flex: 1</code>, те делят мястото по равно.</p>
+  </section>
+  <section class="karta" id="predizvikatelstvo">
+    <span class="etiket">3. Предизвикателство</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="predizvikatelstvo">▶ Чети задачата</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Ценоразпис на фитнес</h2>
+    <p>Подредете трите карти с цени една до друга. Изпълнявайте стъпките една по една. След всяка стъпка натиснете Провери.</p>
+    <ol class="stapki" id="stapki">
+      <li>Подредете картите в ред с <code data-izgovor="дисплей флекс">display: flex</code> на контейнера <code data-izgovor="точка планове">.planove</code>.
+        <p class="podskazka">Подсказка: свойството е на контейнера, не на картите: <code data-izgovor="точка планове, дисплей флекс">.planove { display: flex; }</code>.</p></li>
+      <li>Сложете шестнадесет пиксела разстояние между картите.
+        <p class="podskazka">Подсказка: <code data-izgovor="гап шестнадесет пиксела">gap: 16px;</code>.</p></li>
+      <li>Направете трите карти еднакво широки, така че да заемат цялата ширина.
+        <p class="podskazka">Подсказка: дайте на <code data-izgovor="точка план">.plan</code> <code data-izgovor="флекс едно">flex: 1;</code>.</p></li>
+      <li>Подравнете картите по средата по вертикала с <code data-izgovor="алайн айтъмс">align-items</code>.
+        <p class="podskazka">Подсказка: <code data-izgovor="алайн айтъмс център">align-items: center;</code> на контейнера.</p></li>
+    </ol>
+    <div class="redaktor" id="r-zadacha">
+      <div>
+        <div class="eticheta">Вашият код</div>
+        <textarea spellcheck="false" aria-label="Вашият код">&lt;style&gt;
+.plan { background-color: #fff8e1; border: 2px solid #ffb300; border-radius: 10px; padding: 16px; }
+&lt;/style&gt;
+&lt;h1&gt;Абонаменти&lt;/h1&gt;
+&lt;div class=&quot;planove&quot;&gt;
+  &lt;div class=&quot;plan&quot;&gt;&lt;h2&gt;Месец&lt;/h2&gt;&lt;p&gt;40 лв.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class=&quot;plan&quot;&gt;&lt;h2&gt;Три месеца&lt;/h2&gt;&lt;p&gt;100 лв.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class=&quot;plan&quot;&gt;&lt;h2&gt;Година&lt;/h2&gt;&lt;p&gt;350 лв.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери</button>
+      <button type="button" class="vtori" id="podskazka">Покажи подсказка</button>
+      <button type="button" class="vtori" id="otnachalo">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="test">
+    <span class="etiket">4. Проверка на знанията</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="test">▶ Чети въпросите</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Бързи въпроси</h2>
+    <div class="vapros" data-veren="b" data-obyasnenie="Flex се включва на контейнера и подрежда децата му.">
+      <fieldset>
+        <legend>1. На кой елемент се пише <code data-izgovor="дисплей флекс">display: flex</code>, за да застанат картите в ред?</legend>
+        <label><input type="radio" name="v1" value="a"> На всяка карта.</label>
+        <label><input type="radio" name="v1" value="b"> На контейнера на картите.</label>
+        <label><input type="radio" name="v1" value="c"> На body.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="a" data-obyasnenie="flex-wrap позволява пренасяне.">
+      <fieldset>
+        <legend>2. Кое свойство пренася картите на нов ред, когато няма място?</legend>
+        <label><input type="radio" name="v2" value="a"> <code data-izgovor="флекс рап рап">flex-wrap: wrap</code></label>
+        <label><input type="radio" name="v2" value="b"> <code data-izgovor="гап">gap</code></label>
+        <label><input type="radio" name="v2" value="c"> <code data-izgovor="флекс дирекшън колъм">flex-direction: column</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="space-between разпределя свободното място между децата.">
+      <fieldset>
+        <legend>3. Какво прави <code data-izgovor="джъстифай контент спейс битуийн">justify-content: space-between</code>?</legend>
+        <label><input type="radio" name="v3" value="a"> Събира картите в средата.</label>
+        <label><input type="radio" name="v3" value="b"> Слага равно място между картите, а крайните са до ръбовете.</label>
+        <label><input type="radio" name="v3" value="c"> Обръща реда на картите.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="a" data-obyasnenie="flex-direction сменя посоката на ред или колона.">
+      <fieldset>
+        <legend>4. Как картите стават една под друга?</legend>
+        <label><input type="radio" name="v4" value="a"> <code data-izgovor="флекс дирекшън колъм">flex-direction: column</code></label>
+        <label><input type="radio" name="v4" value="b"> <code data-izgovor="джъстифай контент колъм">justify-content: column</code></label>
+        <label><input type="radio" name="v4" value="c"> <code data-izgovor="флекс едно">flex: 1</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="butoni"><button type="button" class="proveri-testa">Провери отговорите</button></div>
+    <p class="rezultat" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="sledvashto">
+    <span class="etiket">5. Самостоятелна подготовка</span>
+    <h2>Упражнявайте се, докато стане лесно</h2>
+    <p><a href="../trenirovki/03-oformlenie.html">Тренировка: оформление</a></p>
+    <p>Текст на урока за приложение за четене на глас: <a href="../tekst-za-chetene/oformlenie-12-flexbox.txt">oformlenie-12-flexbox.txt</a>.</p>
+  </section>
+
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.govoreshtUrok({ kutiya: "plejar", redaktor: "r-govoresht", nachalen: "<style>\n.karta { background-color: #e8f5e9; padding: 16px; border-radius: 8px; width: 120px; }\n<\/style>\n<div class=\"karti\">\n  <div class=\"karta\">Пролет<\/div>\n  <div class=\"karta\">Лято<\/div>\n  <div class=\"karta\">Есен<\/div>\n  <div class=\"karta\">Зима<\/div>\n<\/div>", sceni: [{"govor": "Имаме четири карти, една под друга. Те са в обща кутия с клас karti. Тази кутия се нарича контейнер.", "izgovor": "Имаме четири карти, една под друга. Те са в обща кутия с клас карти. Тази кутия се нарича контейнер.", "kod": "<style>\n.karta { background-color: #e8f5e9; padding: 16px; border-radius: 8px; width: 120px; }\n<\/style>\n<div class=\"karti\">\n  <div class=\"karta\">Пролет<\/div>\n  <div class=\"karta\">Лято<\/div>\n  <div class=\"karta\">Есен<\/div>\n  <div class=\"karta\">Зима<\/div>\n<\/div>"}, {"govor": "Даваме на контейнера display: flex. Картите веднага застават в ред.", "izgovor": "Даваме на контейнера дисплей флекс. Картите веднага застават в ред.", "kod": "<style>\n.karti { display: flex; }\n.karta { background-color: #e8f5e9; padding: 16px; border-radius: 8px; width: 120px; }\n<\/style>\n<div class=\"karti\">\n  <div class=\"karta\">Пролет<\/div>\n  <div class=\"karta\">Лято<\/div>\n  <div class=\"karta\">Есен<\/div>\n  <div class=\"karta\">Зима<\/div>\n<\/div>"}, {"govor": "Залепени са. С gap задаваме разстояние между тях.", "izgovor": "Залепени са. С гап задаваме разстояние между тях.", "kod": "<style>\n.karti { display: flex; gap: 12px; }\n.karta { background-color: #e8f5e9; padding: 16px; border-radius: 8px; width: 120px; }\n<\/style>\n<div class=\"karti\">\n  <div class=\"karta\">Пролет<\/div>\n  <div class=\"karta\">Лято<\/div>\n  <div class=\"karta\">Есен<\/div>\n  <div class=\"karta\">Зима<\/div>\n<\/div>"}, {"govor": "Ако няма място, картите се свиват. С flex-wrap: wrap те минават на нов ред. Пробвайте да стесните прозореца.", "izgovor": "Ако няма място, картите се свиват. С флекс рап рап те минават на нов ред. Пробвайте да стесните прозореца.", "kod": "<style>\n.karti { display: flex; gap: 12px; flex-wrap: wrap; }\n.karta { background-color: #e8f5e9; padding: 16px; border-radius: 8px; width: 120px; }\n<\/style>\n<div class=\"karti\">\n  <div class=\"karta\">Пролет<\/div>\n  <div class=\"karta\">Лято<\/div>\n  <div class=\"karta\">Есен<\/div>\n  <div class=\"karta\">Зима<\/div>\n<\/div>"}, {"govor": "justify-content разпределя картите по хоризонталата. Стойността center ги събира в средата.", "izgovor": "джъстифай контент разпределя картите по хоризонталата. Стойността център ги събира в средата.", "kod": "<style>\n.karti { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }\n.karta { background-color: #e8f5e9; padding: 16px; border-radius: 8px; width: 120px; }\n<\/style>\n<div class=\"karti\">\n  <div class=\"karta\">Пролет<\/div>\n  <div class=\"karta\">Лято<\/div>\n  <div class=\"karta\">Есен<\/div>\n  <div class=\"karta\">Зима<\/div>\n<\/div>"}, {"govor": "С flex-direction: column картите отново са една под друга. Това ще ни трябва за телефони. Върнете row, за да са в ред.", "izgovor": "С флекс дирекшън колъм картите отново са една под друга. Това ще ни трябва за телефони. Върнете роу, за да са в ред.", "kod": "<style>\n.karti { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; flex-direction: row; }\n.karta { background-color: #e8f5e9; padding: 16px; border-radius: 8px; width: 120px; }\n<\/style>\n<div class=\"karti\">\n  <div class=\"karta\">Пролет<\/div>\n  <div class=\"karta\">Лято<\/div>\n  <div class=\"karta\">Есен<\/div>\n  <div class=\"karta\">Зима<\/div>\n<\/div>"}] });
+  Uchebnik.predizvikatelstvo({
+    redaktor: "r-zadacha", spisak: "stapki", proveri: "proveri", podskazka: "podskazka",
+    otnachalo: "otnachalo", saobshtenie: "saobshtenie", kraj: "Ценоразписът е готов и подреден.",
+    proverki: [
+function (d, kod, w, P) {
+var p = d.querySelectorAll(".plan"); if (P.stil(d.querySelector(".planove"), "display") !== "flex") return "Контейнерът .planove няма display: flex."; if (p[1].getBoundingClientRect().left < p[0].getBoundingClientRect().right - 1) return "Картите още не са в ред."; return true;
+},
+function (d, kod, w, P) {
+var p = d.querySelectorAll(".plan"); var r = p[1].getBoundingClientRect().left - p[0].getBoundingClientRect().right; if (Math.abs(r - 16) > 1) return "Разстоянието между картите е " + Math.round(r) + "px. Трябва да е 16px."; return true;
+},
+function (d, kod, w, P) {
+var p = d.querySelectorAll(".plan"); var a = p[0].getBoundingClientRect().width, c = p[2].getBoundingClientRect().width; if (Math.abs(a - c) > 2) return "Картите не са еднакво широки."; var k = d.querySelector(".planove").getBoundingClientRect(); if (p[2].getBoundingClientRect().right < k.right - 2) return "Картите не стигат до десния край. Използвайте flex: 1."; return true;
+},
+function (d, kod, w, P) {
+if (P.stil(d.querySelector(".planove"), "align-items") !== "center") return "Добавете align-items: center на .planove."; return true;
+}
+    ]
+  });
+  Uchebnik.proverkaNaZnaniyata("test");
+});
+</script>
+</body>
+</html>

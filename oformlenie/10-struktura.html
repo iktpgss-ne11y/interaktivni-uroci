@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Структура на страницата: семантични тагове</title>
+  <link rel="stylesheet" href="../obshto/ucheben.css">
+</head>
+<body>
+
+<header class="glaven">
+  <a href="../index.html">← Всички уроци</a>
+  <p class="etiket">Модул 3. Оформление на страница · Урок 10</p>
+  <h1>Структура на страницата: семантични тагове</h1>
+  <p class="podzaglavie">Ще научите таговете, които разделят страницата на части: хедър, меню, основно съдържание и футър.</p>
+  <p class="podzaglavie">Време: около 30 минути.</p>
+</header>
+
+<main>
+  <section class="karta" id="govoresht">
+    <span class="etiket">1. Видеообяснение</span>
+    <h2>Скелет на страница</h2>
+    <video class="video-urok" controls preload="metadata" src="../video/10-struktura.mp4"></video>
+    <p>Видеото има глас и субтитри. Под него е същото обяснение, но интерактивно: можете да спрете и да промените кода сами.</p>
+    <p>Натиснете Пусни. Кодът ще се пише сам, а гласът ще обяснява. Можете да спрете по всяко време, да промените кода и да видите какво става.</p>
+    <div class="plejar" id="plejar">
+    <div class="redaktor" id="r-govoresht" data-bez-pamet>
+      <div>
+        <div class="eticheta">Код</div>
+        <textarea spellcheck="false" aria-label="Код"></textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+      <div class="subtitri" aria-live="polite"></div>
+      <div class="upravlenie">
+        <button type="button" class="nazad vtori" aria-label="Предишна сцена">⏮ Назад</button>
+        <button type="button" class="pusni">▶ Пусни</button>
+        <button type="button" class="napred vtori" aria-label="Следваща сцена">Напред ⏭</button>
+        <label>Скорост на гласа
+          <select class="izbor-skorost">
+            <option value="0.8">бавно</option>
+            <option value="0.95">нормално</option>
+            <option value="1.1">бързо</option>
+          </select>
+        </label>
+        <span class="nomer-scena"></span>
+      </div>
+      <div class="lenta-kutiya"><div class="lenta"></div></div>
+    </div>
+    <p>Гласът работи най-добре в Microsoft Edge, където има български глас. В другите браузъри урокът върви със субтитри.</p>
+  </section>
+  <section class="karta" id="obyasnenie">
+    <span class="etiket">2. Обяснение</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="obyasnenie">▶ Чети на глас</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Семантични тагове и обикновени кутии</h2>
+    <p>Семантичен означава, че тагът казва какво е съдържанието, а не как изглежда.</p>
+    <p><code data-izgovor="хедър">header</code> е горната част. <code data-izgovor="нав">nav</code> е менюто. <code data-izgovor="мейн">main</code> е основното съдържание и е само едно. <code data-izgovor="артикъл">article</code> е самостоятелна статия. <code data-izgovor="секшън">section</code> е раздел с общо заглавие. <code data-izgovor="футър">footer</code> е долната част.</p>
+    <pre class="primer"><code>&lt;header&gt;...&lt;/header&gt;
+&lt;nav&gt;...&lt;/nav&gt;
+&lt;main&gt;
+  &lt;section&gt;...&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+    <p>Когато ни трябва кутия само за оформление, използваме <code data-izgovor="див">div</code>. Той не означава нищо, просто групира елементи. За дума в изречение има <code data-izgovor="спан">span</code>.</p>
+    <p><code data-izgovor="див">div</code> е блоков елемент: започва на нов ред и заема цялата ширина. <code data-izgovor="спан">span</code> е редов елемент: стои в реда заедно с текста.</p>
+    <p>Програмите за незрящи хора използват семантичните тагове, за да прескачат направо до менюто или до съдържанието. Затова не правете всичко с <code data-izgovor="див">div</code>.</p>
+  </section>
+  <section class="karta" id="predizvikatelstvo">
+    <span class="etiket">3. Предизвикателство</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="predizvikatelstvo">▶ Чети задачата</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Страница на клуб по роботика</h2>
+    <p>Подредете страницата на училищния клуб в правилните части. Изпълнявайте стъпките една по една. След всяка стъпка натиснете Провери.</p>
+    <ol class="stapki" id="stapki">
+      <li>Сложете главното заглавие в <code data-izgovor="хедър">header</code>.
+        <p class="podskazka">Подсказка: <code data-izgovor="хедър">&lt;header&gt;</code> преди <code data-izgovor="ейч едно">h1</code> и <code data-izgovor="затварящ хедър">&lt;/header&gt;</code> след него.</p></li>
+      <li>Сложете двете връзки в <code data-izgovor="нав">nav</code>.
+        <p class="podskazka">Подсказка: <code data-izgovor="нав">nav</code> обгражда и двете връзки.</p></li>
+      <li>Сложете подзаглавието и абзаца за робота в <code data-izgovor="секшън">section</code>, а секцията в <code data-izgovor="мейн">main</code>.
+        <p class="podskazka">Подсказка: отвън е <code data-izgovor="мейн">main</code>, вътре е <code data-izgovor="секшън">section</code>, а в нея са <code data-izgovor="ейч две">h2</code> и абзацът.</p></li>
+      <li>Сложете абзаца с имейла във <code data-izgovor="футър">footer</code>.
+        <p class="podskazka">Подсказка: <code data-izgovor="футър">footer</code> е най-отдолу, след <code data-izgovor="мейн">main</code>.</p></li>
+      <li>Сложете думата линия в <code data-izgovor="спан">span</code> с клас <code data-izgovor="акцент">akcent</code> и я оцветете с CSS.
+        <p class="podskazka">Подсказка: <code data-izgovor="спан клас акцент">&lt;span class=&quot;akcent&quot;&gt;линия&lt;/span&gt;</code> и правило <code data-izgovor="точка акцент">.akcent</code> с <code data-izgovor="колър">color</code>.</p></li>
+    </ol>
+    <div class="redaktor" id="r-zadacha">
+      <div>
+        <div class="eticheta">Вашият код</div>
+        <textarea spellcheck="false" aria-label="Вашият код">&lt;h1&gt;Клуб Роботика&lt;/h1&gt;
+&lt;a href=&quot;#&quot;&gt;Начало&lt;/a&gt;
+&lt;a href=&quot;#&quot;&gt;Проекти&lt;/a&gt;
+&lt;h2&gt;Нашият робот&lt;/h2&gt;
+&lt;p&gt;Тази година направихме робот, който кара по линия.&lt;/p&gt;
+&lt;p&gt;Пишете ни: robotika@uchilishte.bg&lt;/p&gt;</textarea>
+      </div>
+      <div>
+        <div class="eticheta">Резултат</div>
+        <iframe title="Резултат"></iframe>
+      </div>
+    </div>
+    <div class="butoni">
+      <button type="button" id="proveri">Провери</button>
+      <button type="button" class="vtori" id="podskazka">Покажи подсказка</button>
+      <button type="button" class="vtori" id="otnachalo">Започни отначало</button>
+    </div>
+    <p class="saobshtenie" id="saobshtenie" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="test">
+    <span class="etiket">4. Проверка на знанията</span>
+    <div class="cheti">
+      <button type="button" class="vtori" data-cheti="test">▶ Чети въпросите</button>
+      <button type="button" class="vtori" data-spri>■ Спри</button>
+      <span class="suvet-glas"></span>
+    </div>
+    <h2>Бързи въпроси</h2>
+    <div class="vapros" data-veren="b" data-obyasnenie="Навигацията се пише в nav.">
+      <fieldset>
+        <legend>1. Кой таг е за менюто на сайта?</legend>
+        <label><input type="radio" name="v1" value="a"> <code data-izgovor="мену">menu</code></label>
+        <label><input type="radio" name="v1" value="b"> <code data-izgovor="нав">nav</code></label>
+        <label><input type="radio" name="v1" value="c"> <code data-izgovor="хедър">header</code></label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="a" data-obyasnenie="main е основното съдържание и е едно.">
+      <fieldset>
+        <legend>2. Колко пъти може да има <code data-izgovor="мейн">main</code> на една страница?</legend>
+        <label><input type="radio" name="v2" value="a"> Само веднъж.</label>
+        <label><input type="radio" name="v2" value="b"> Колкото искаме.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="div е блоков елемент, span е редов.">
+      <fieldset>
+        <legend>3. Каква е разликата между <code data-izgovor="див">div</code> и <code data-izgovor="спан">span</code>?</legend>
+        <label><input type="radio" name="v3" value="a"> div е за снимки, span е за текст.</label>
+        <label><input type="radio" name="v3" value="b"> div е блоков и започва на нов ред, span стои в реда.</label>
+        <label><input type="radio" name="v3" value="c"> Няма разлика.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="vapros" data-veren="b" data-obyasnenie="Програмите за четене разпознават частите на страницата по таговете.">
+      <fieldset>
+        <legend>4. Защо семантичните тагове помагат на незрящите хора?</legend>
+        <label><input type="radio" name="v4" value="a"> Правят текста по-голям.</label>
+        <label><input type="radio" name="v4" value="b"> Програмите за четене могат да прескачат до менюто или съдържанието.</label>
+        <label><input type="radio" name="v4" value="c"> Оцветяват страницата.</label>
+      </fieldset>
+      <p class="obratna"></p>
+    </div>
+    <div class="butoni"><button type="button" class="proveri-testa">Провери отговорите</button></div>
+    <p class="rezultat" role="status" aria-live="polite"></p>
+  </section>
+  <section class="karta" id="sledvashto">
+    <span class="etiket">5. Самостоятелна подготовка</span>
+    <h2>Упражнявайте се, докато стане лесно</h2>
+    <p><a href="../trenirovki/03-oformlenie.html">Тренировка: оформление</a></p>
+    <p>Текст на урока за приложение за четене на глас: <a href="../tekst-za-chetene/oformlenie-10-struktura.txt">oformlenie-10-struktura.txt</a>.</p>
+  </section>
+
+</main>
+
+<footer class="glaven">
+  <p>Интерактивни уроци по уеб дизайн за 12 клас. Подходът е вдъхновен от безплатния курс по HTML и CSS на Кан академия. Текстовете, примерите и задачите са оригинални.</p>
+</footer>
+<script src="../obshto/ucheben.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  Uchebnik.govoreshtUrok({ kutiya: "plejar", redaktor: "r-govoresht", nachalen: "", sceni: [{"govor": "Почти всяка страница има едни и същи части. Горе е хедърът с името на сайта. Пишем таг header.", "izgovor": "Почти всяка страница има едни и същи части. Горе е хедърът с името на сайта. Пишем таг хедър.", "kod": "<header>\n  <h1>Училищен вестник<\/h1>\n<\/header>"}, {"govor": "Под него е менюто. За менюто има отделен таг nav, от думата навигация.", "izgovor": "Под него е менюто. За менюто има отделен таг нав, от думата навигация.", "kod": "<header>\n  <h1>Училищен вестник<\/h1>\n<\/header>\n<nav>\n  <a href=\"#\">Новини<\/a>\n  <a href=\"#\">Спорт<\/a>\n<\/nav>"}, {"govor": "Основното съдържание е в main. На страницата има само един такъв таг.", "izgovor": "Основното съдържание е в мейн. На страницата има само един такъв таг.", "kod": "<header>\n  <h1>Училищен вестник<\/h1>\n<\/header>\n<nav>\n  <a href=\"#\">Новини<\/a>\n  <a href=\"#\">Спорт<\/a>\n<\/nav>\n<main>\n<\/main>"}, {"govor": "Вътре в main всяка статия е отделен article. Статията има смисъл и сама, без останалата страница.", "izgovor": "Вътре в мейн всяка статия е отделен артикъл. Статията има смисъл и сама, без останалата страница.", "kod": "<header>\n  <h1>Училищен вестник<\/h1>\n<\/header>\n<nav>\n  <a href=\"#\">Новини<\/a>\n  <a href=\"#\">Спорт<\/a>\n<\/nav>\n<main>\n  <article>\n    <h2>Нов компютърен кабинет<\/h2>\n    <p>От понеделник учим в новия кабинет.<\/p>\n  <\/article>\n<\/main>"}, {"govor": "Най-долу е футърът footer с контакти и авторски права.", "izgovor": "Най-долу е футърът футър с контакти и авторски права.", "kod": "<header>\n  <h1>Училищен вестник<\/h1>\n<\/header>\n<nav>\n  <a href=\"#\">Новини<\/a>\n  <a href=\"#\">Спорт<\/a>\n<\/nav>\n<main>\n  <article>\n    <h2>Нов компютърен кабинет<\/h2>\n    <p>От понеделник учим в новия кабинет.<\/p>\n  <\/article>\n<\/main>\n<footer>\n  <p>12 клас, 2027<\/p>\n<\/footer>"}, {"govor": "Тези тагове не сменят вида на страницата. Но казват на браузъра, на търсачките и на програмите за четене кое какво е. Сега можем лесно да ги оцветим с CSS.", "izgovor": "Тези тагове не сменят вида на страницата. Но казват на браузъра, на търсачките и на програмите за четене кое какво е. Сега можем лесно да ги оцветим с CSS.", "kod": "<style>\nheader { background-color: #1565c0; color: white; padding: 10px; }\nfooter { background-color: #eceff1; padding: 10px; }\n<\/style>\n<header>\n  <h1>Училищен вестник<\/h1>\n<\/header>\n<nav>\n  <a href=\"#\">Новини<\/a>\n  <a href=\"#\">Спорт<\/a>\n<\/nav>\n<main>\n  <article>\n    <h2>Нов компютърен кабинет<\/h2>\n    <p>От понеделник учим в новия кабинет.<\/p>\n  <\/article>\n<\/main>\n<footer>\n  <p>12 клас, 2027<\/p>\n<\/footer>"}] });
+  Uchebnik.predizvikatelstvo({
+    redaktor: "r-zadacha", spisak: "stapki", proveri: "proveri", podskazka: "podskazka",
+    otnachalo: "otnachalo", saobshtenie: "saobshtenie", kraj: "Браво! Страницата има ясна структура.",
+    proverki: [
+function (d, kod, w, P) {
+if (!d.querySelector("header h1")) return "Заглавието h1 трябва да е вътре в header."; return true;
+},
+function (d, kod, w, P) {
+if (d.querySelectorAll("nav a").length < 2) return "Двете връзки трябва да са вътре в nav."; if (d.querySelector("header nav")) return "Тук оставете nav след header, а не вътре в него."; return true;
+},
+function (d, kod, w, P) {
+var s = d.querySelector("main section"); if (!s) return "Нужна е section вътре в main."; if (!s.querySelector("h2") || !s.querySelector("p")) return "В секцията трябва да са h2 и абзацът за робота."; return true;
+},
+function (d, kod, w, P) {
+var f = d.querySelector("footer"); if (!f || P.tekst(f).indexOf("@") === -1) return "Абзацът с имейла трябва да е във footer."; if (d.querySelector("main footer")) return "footer трябва да е след main, не вътре в него."; return true;
+},
+function (d, kod, w, P) {
+var s = d.querySelector("span.akcent"); if (!s) return "Не виждам span с клас akcent."; if (P.stil(s, "color") === P.stil(s.parentElement, "color")) return "Дайте цвят на .akcent в тага style."; return true;
+}
+    ]
+  });
+  Uchebnik.proverkaNaZnaniyata("test");
+});
+</script>
+</body>
+</html>
